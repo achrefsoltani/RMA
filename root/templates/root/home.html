@@ -124,37 +124,37 @@
                 <ul class="list">
                     <li class="header">{{date|date:'l d F Y'}}</li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listActifs'%}">
                             <i class="material-icons">brightness_auto</i>
                             <span>Gestion des actifs</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listVulnerabilites'%}">
                             <i class="material-icons">error</i>
                             <span>Gestion des vulnérabilités</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listMenaces'%}">
                             <i class="material-icons">warning</i>
                             <span>Gestion des menaces</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listImpacts'%}">
                             <i class="material-icons">trending_down</i>
                             <span>Gestion des impacts</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listMesures'%}">
                             <i class="material-icons">gavel</i>
                             <span>Gestion des mesures</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{% url 'listSessions'%}">
                             <i class="material-icons">library_books</i>
                             <span>Gestion des sessions</span>
                         </a>
@@ -187,11 +187,15 @@
     </section>
 
     <section class="content">
+    
+        {% block content %}
         <div class="container-fluid">
             <div class="block-header">
-                <h2>BLANK PAGE</h2>
+                <h2>Profile</h2>
             </div>
         </div>
+        {% endblock %}
+        
     </section>
 
     <!-- Jquery Core Js -->
