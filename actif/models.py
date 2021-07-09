@@ -5,8 +5,8 @@ from django.db.models.fields import CharField
 
 class typeActif(models.Model):
 
-    reference = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
+    reference = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=50, null=True)
     
     #logs
     created_at = models.DateTimeField(auto_now_add=True)
@@ -19,17 +19,17 @@ class typeActif(models.Model):
 
 class actif(models.Model):
     
-    reference = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
-    criticite_affaire = models.IntegerField()
-    cid = models.IntegerField()
-    proprietaire = models.CharField(max_length=50)
+    reference = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=50, null=True)
+    criticite_affaire = models.IntegerField(null=True)
+    cid = models.IntegerField(null=True)
+    proprietaire = models.CharField(max_length=50, null=True)
     
     #Relationships
 
-    # type = typeActif
+    type = models.ForeignKey(typeActif, null=True, on_delete=models.SET_NULL)
     #actifs_en_relation = liste d'actifs
-    #mesures_existantes = liste de mesures
+    
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)
@@ -42,20 +42,17 @@ class actif(models.Model):
 
 class actifCritique(models.Model):
 
-    incidents = models.IntegerField()
-    maturite = models.IntegerField()
-    note_risque = models.IntegerField()
+    incidents = models.IntegerField(null=True)
+    maturite = models.IntegerField(null=True)
+    note_risque = models.IntegerField(null=True)
 
     #Relationships
 
-    #actif
-    #session
-    #vulnerabilite
-    #menaces
-    #impacts
-    #traitement
+    actif = models.ForeignKey(actif, null=True, on_delete=models.SET_NULL)
+    # session = models.ForeignKey(session, null=True, on_delete=models.SET_NULL) 
+    
 
-     #logs
+    #logs
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     #created_by = .....
