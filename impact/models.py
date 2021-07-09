@@ -14,6 +14,8 @@ class Impact(models.Model):
     impactFaible = models.CharField(max_length=150)
     impactMoyen = models.CharField(max_length=150)
     impactFort = models.CharField(max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
 		    return self.categorie
@@ -23,6 +25,8 @@ class ImpactNote(models.Model):
     actif = models.CharField(max_length=150)
     NoteImpact= models.IntegerField()
     NoteOcc= models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 
