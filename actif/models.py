@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import CharField
+from session.models import session
 
 # Create your models here.
 
@@ -49,7 +49,7 @@ class actifCritique(models.Model):
     #Relationships
 
     actif = models.ForeignKey(actif, null=True, on_delete=models.SET_NULL)
-    # session = models.ForeignKey(session, null=True, on_delete=models.SET_NULL) 
+    session = models.ForeignKey(session, null=True, on_delete=models.SET_NULL) 
     
 
     #logs
