@@ -28,7 +28,7 @@ class actif(models.Model):
     #Relationships
 
     type = models.ForeignKey(typeActif, null=True, on_delete=models.SET_NULL)
-    #actifs_en_relation = liste d'actifs
+    actifs_en_relations = models.ManyToManyField('self', blank=True, null=True, symmetrical=True)
     
 
     #logs
