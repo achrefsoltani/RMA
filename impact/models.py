@@ -17,7 +17,7 @@ class Impact(models.Model):
     impactMoyen = models.CharField(max_length=150)
     impactFort = models.CharField(max_length=150)
     #relations
-    typeImpact = models.CharField(max_length=150)
+     typeImpact = models.ForeignKey(TypeImpact, on_delete=models.SET_NULL)
     #logs
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -29,8 +29,8 @@ class ImpactNote(models.Model):
     NoteImpact= models.IntegerField()
     NoteOcc= models.IntegerField()
     #relations
-    actifCritique = models.CharField(max_length=150)
-    impact = models.CharField(max_length=150)
+    actifCritique = models.ForeignKey(ActifCritique,  on_delete=models.SET_NULL)
+    impact = models.ForeignKey(Impact, on_delete=models.SET_NULL)
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)

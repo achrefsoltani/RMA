@@ -10,9 +10,9 @@ class Actif(models.Model):
     cid = models.IntegerField()
     proprietaire = models.CharField(max_length=150)
     #relation
-     typeActif = models.CharField(max_length=150)
-     actifRelation = models.CharField(max_length=150)
-     mesure = models.CharField(max_length=150)
+    typeActif = models.ForeignKey(TypeActif, on_delete=models.SET_NULL)
+    actifRelation = models.ForeignKey(Actif, null=True, on_delete=models.SET_NULL)
+    
      #logs
       created_at = models.DateTimeField(auto_now_add=True)
       updated_at = models.DateTimeField(auto_now=True)

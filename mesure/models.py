@@ -8,7 +8,7 @@ class Mesure(models.Model):
     dateImplementation = models.DateTimeField()
     note = models.IntegerField()
     #relations
-    actifCritique = models.CharField(max_length=150)
+    actifCritique = models.ForeignKey(ActifCritique, on_delete=models.SET_NULL)
      #logs
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

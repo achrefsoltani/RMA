@@ -11,8 +11,8 @@ class Vulnerabilite(models.Model):
     reference = models.CharField(max_length=150)
     description= models.TextField(blank=True)
     #relations
-     type = models.CharField(max_length=150)
-     menace = models.CharField(max_length=150)
+      typeVulnerabilite = models.ForeignKey(TypeVulnerabilite, on_delete=models.SET_NULL)
+      menace = models.ForeignKey(Menace, null=True, on_delete=models.SET_NULL)
 
      #logs
      created_at = models.DateTimeField(auto_now_add=True)
@@ -23,8 +23,8 @@ class Vulnerabilite(models.Model):
 class VulnerabiliteNote(models.Model):
     note = models.IntegerField()
     #relations
-    actifCritique = models.CharField(max_length=150)
-    vulnérabilite = models.CharField(max_length=150)
+    actifCritique = models.ForeignKey(ActifCritique, on_delete=models.SET_NULL)
+    vulnerabilite = models.ForeignKey(Vulnerabilite, on_delete=models.SET_NULL)
 
    
 
