@@ -21,5 +21,5 @@ class mesure(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.actif_critique + self.description
+        return  self.description
 

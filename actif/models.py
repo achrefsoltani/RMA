@@ -57,4 +57,7 @@ class actifCritique(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     #created_by = .....
 
+    def __str__(self):
+        return self.actif.description
+
     
