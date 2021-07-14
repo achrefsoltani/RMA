@@ -16,6 +16,15 @@ class Actif(models.Model):
      #logs
       created_at = models.DateTimeField(auto_now_add=True)
       updated_at = models.DateTimeField(auto_now=True)
+class ActifCritique(models.Model):
+    IncidentsPasse = models.IntegerField()
+    maturite = models.IntegerField()
+    noteRisque = models.IntegerField()
+    #relation
+    actif = models.CharField(max_length=150)
+    session = models.CharField(max_length=150)
+
+          
 
 
 

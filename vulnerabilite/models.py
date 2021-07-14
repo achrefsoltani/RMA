@@ -7,20 +7,26 @@ class TypeVulnerabilite(models.Model):
     
 
 class Vulnerabilite(models.Model):
-    #clé table typeVulnerabilite
-    type = models.CharField(max_length=150)
+   
     reference = models.CharField(max_length=150)
     description= models.TextField(blank=True)
-    #clé table menace
-    menace = models.CharField(max_length=150)
+    #relations
+     type = models.CharField(max_length=150)
+     menace = models.CharField(max_length=150)
 
+     #logs
+     created_at = models.DateTimeField(auto_now_add=True)
+     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
 		    return self.type
 
 class VulnerabiliteNote(models.Model):
-    #clé table actif critique
-    actif = models.CharField(max_length=150)
     note = models.IntegerField()
+    #relations
+    actifCritique = models.CharField(max_length=150)
+    vulnérabilite = models.CharField(max_length=150)
+
+   
 
 
 

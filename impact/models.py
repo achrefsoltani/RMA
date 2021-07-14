@@ -1,19 +1,24 @@
 from django.db import models
 
-class CategorieImpact(models.Model):
+class TypeImpact(models.Model):
     reference = models.CharField(max_length=150)
     description= models.TextField(blank=True)
+     #logs
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 
 
 class Impact(models.Model):
-    #clé table categorie impact
-    categorie = models.CharField(max_length=150)
     description= models.TextField(blank=True)
     reference = models.CharField(max_length=150)
     impactFaible = models.CharField(max_length=150)
     impactMoyen = models.CharField(max_length=150)
     impactFort = models.CharField(max_length=150)
+    #relations
+    typeImpact = models.CharField(max_length=150)
+    #logs
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -21,12 +26,16 @@ class Impact(models.Model):
 		    return self.categorie
 
 class ImpactNote(models.Model):
-    #clé table actif
-    actif = models.CharField(max_length=150)
     NoteImpact= models.IntegerField()
     NoteOcc= models.IntegerField()
+    #relations
+    actifCritique = models.CharField(max_length=150)
+    impact = models.CharField(max_length=150)
+
+    #logs
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
 
 
 
