@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'root',
     'session',
     'vulnerabilite',
+    'user',
 ]
 
 MIDDLEWARE = [
