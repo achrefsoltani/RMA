@@ -1,6 +1,8 @@
 {% extends 'root/table.html'%}
 
-<h1>Liste des Vulnérabilités</h1>
+   <h1>Liste des Vulnérabilités</h1>
+
+
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
        
@@ -8,6 +10,142 @@
         <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
             nouvelle vulnérabilité
         </button>
+      {% endblock %}
+      {% block tags %}
+      <li role="presentation" class="active">
+          <a href="#home" data-toggle="tab" aria-expanded="true">
+              Matériel
+          </a>
+      </li>
+      <li role="presentation" class="">
+          <a href="#profile" data-toggle="tab" aria-expanded="false">
+              Logiciel
+          </a>
+      </li>
+      <li role="presentation" class="">
+          <a href="#messages" data-toggle="tab" aria-expanded="false">
+              Réseau
+          </a>
+      </li>
+      <li role="presentation" class="">
+          <a href="#settings" data-toggle="tab" aria-expanded="false">
+              Personnel
+          </a>
+      </li>
+      <li role="presentation" class="">
+        <a href="#settings" data-toggle="tab" aria-expanded="false">
+            Site
+        </a>
+    </li>
+      <li role="presentation" class="">
+         
+          <a href="#settings" data-toggle="tab" aria-expanded="false">
+              <i class="material-icons">add_box</i>
+              
+          </a>
+      </li>
+      {% endblock %}
+      {% block table %}
+      <thead>
+        <tr role="row">
+            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
+                Réference
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
+                Description
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 104px;">
+                Menace
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
+                Réference
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
+                Description
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 104px;">
+                Menace
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                Actions
+            </th>
+        </tr>
+    </tfoot>
+    <tbody>                                         
+        <tr role="row" class="odd">
+                <td class="sorting_1">
+                    VM001
+                </td>
+                <td>
+                    Sensibilité aux rayonnements éléctronique
+                 </td>
+                <td>
+                    rayonnements éléctronique
+                </td>
+                <td>
+            
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                        
+                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+        
+                </td>
+        </tr>
+        <tr role="row" class="even">
+                <td class="sorting_1">
+                    AAS002
+                </td>
+                <td></td>
+                <td>4</td>
+                <td>
+                    
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                        
+                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+                
+                </td>
+        </tr>
+        <tr role="row" class="odd">
+                <td class="sorting_1">
+                    AAS003
+                </td>
+                <td></td>
+                <td>2</td>
+                
+                <td>
+                    
+                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                        
+                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </div>
+                
+                </td>
+        </tr>
+        
+    </tbody>
       {% endblock %}
      
     </div>
