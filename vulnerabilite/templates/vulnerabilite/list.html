@@ -1,5 +1,14 @@
-{% extends 'root/home.html' %}
+{% extends 'root/table.html'%}
 
-{% block content %}
-<h1>Liste des vulnerabilités</h1>
-{% endblock %}
+<h1>Liste des Vulnérabilités</h1>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       
+      {% block btn %}
+        <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
+            nouvelle vulnérabilité
+        </button>
+      {% endblock %}
+     
+    </div>
+</div>
