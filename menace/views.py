@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
 from .forms import menaceForm
+from .models import menace
 
 date = datetime.now
 
@@ -21,4 +22,20 @@ def ajoutMenace(request):
 
     context = {'form':form}
 
+    return render(request, "menace/menace_form.html", context)
+
+
+def updateMenace(request, pk):
+    menace_pk = menace.objects.get(id=pk)
+
+    form = menaceForm(instance=menace_pk)
+
+    if request.method == 'POST':
+        form = menaceForm(request.POST, instance=menace_pk)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('listMenaces')
+
+    context = {'form':form}
     return render(request, "menace/menace_form.html", context)

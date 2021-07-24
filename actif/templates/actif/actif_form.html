@@ -8,7 +8,7 @@
 {% load widget_tweaks %}
 <div class="card" style="margin:10%;">
     <div class="header">
-        <h1>Ajout Actif</h1>
+        <h1>Actif</h1>
     </div>
     <div class="body">
         <form action="" method="POST">
@@ -17,6 +17,7 @@
             <!-- ligne 1 -->
             <div class="col-sm-12">
                 <h2 class="card-inside-title">Type : Type d'actif</h2>
+                {{form.type}}
             </div>
 
             <!-- ligne 2 -->
@@ -73,7 +74,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        {% render_field form.proprietaire class="form-control" aria-required="true" %}
+                        
                         <label class="form-label">Intervenant</label>
                     </div>
                 </div>
