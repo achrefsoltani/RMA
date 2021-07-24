@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'root',
     'session',
     'vulnerabilite',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -30,6 +30,10 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{% static 'root/css/themes/all-themes.css' %}" rel="stylesheet" />
+
+    {% block head %}
+
+    {% endblock %}
 </head>
 
 <body class="theme-red">
@@ -218,6 +222,10 @@
 
     <!-- Demo Js -->
     <script src="{% static 'root/js/demo.js' %}"></script>
+
+    {% block scripts%}
+
+    {% endblock %}
 </body>
 
 </html>
