@@ -4,8 +4,7 @@
 <h1>Liste des actifs</h1>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="card">
-           
+        <div class="card"> 
             <div class="body">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs tab-nav-right" role="tablist">
@@ -31,7 +30,7 @@
                     </li>
                     <li role="presentation" class="">
                        
-                        <a href="#settings" data-toggle="tab" aria-expanded="false">
+                        <a href="#add" data-toggle="tab" aria-expanded="false">
                             <i class="material-icons">add_box</i>
                             
                         </a>
@@ -39,26 +38,44 @@
                 </ul>
                 <!--end Tabs-->
 
-                <!-- listeActif -->
+                <!-- Tabs content -->
                 <div class="tab-content">
+                    <!--content tab1-->
                     <div role="tabpanel" class="tab-pane fade active in" id="home">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="card">
-                                
                                         <div class="header">
                                             <div id="DataTables_Table_1_filter" class="dataTables_filter">
                                                 <label>
                                                     Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
                                                 </label>
-                                                <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">Nouveau actif</button>
-                                            </div>
-                                           
+                                                <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
+                                                    Nouveau actif
+                                                </button>
+                                            </div>      
                                         </div>
                                         <div class="body">
                                             <div class="table-responsive">
-                                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Copy</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>CSV</span></a><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>PDF</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Print</span></a></div>
-                                                
+                                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                                    <div class="dt-buttons" style="margin-bottom: 15px">
+                                                        <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
+                                                            <span>Copy</span>
+                                                        </a>
+                                                        <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
+                                                            <span>CSV</span>
+                                                        </a>
+                                                        <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
+                                                            <span>Excel</span>
+                                                        </a>
+                                                        <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
+                                                            <span>PDF</span>
+                                                        </a>
+                                                        <a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#">
+                                                            <span>Print</span>
+                                                        </a>
+                                                    </div>
+                                            
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                     <thead>
                                                         <tr role="row">
@@ -854,6 +871,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <div role="tabpanel" class="tab-pane fade active in" id="add">
+                        <b>Formulaire Ajout type</b>
+                        <p>
+                           Formulaire ici
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
