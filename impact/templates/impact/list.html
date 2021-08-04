@@ -2,6 +2,9 @@
 
 {% block content %}
 <h1>Critéres d'évaluation des impacts</h1>
+{% for item in all %}
+    <p>{{ item.description }}</p>
+ {% endfor %}
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card"> 
