@@ -6,28 +6,17 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card"> 
             <div class="body">
-                <!-- Nav tabs -->
+                <!-- Nav tabs --> 
                 <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#home" data-toggle="tab" aria-expanded="true">
-                            Matériel
-                        </a>
-                    </li>
-                    <li role="presentation" class="">
-                        <a href="#profile" data-toggle="tab" aria-expanded="false">
-                            Logiciel
-                        </a>
-                    </li>
-                    <li role="presentation" class="">
-                        <a href="#messages" data-toggle="tab" aria-expanded="false">
-                            Réseau
-                        </a>
-                    </li>
-                    <li role="presentation" class="">
-                        <a href="#settings" data-toggle="tab" aria-expanded="false">
-                            Personnel
-                        </a>
-                    </li>
+                    {% for typeVulnerabilite in allType %} 
+                        <li role="presentation" class="active">
+                            <a href="#home" data-toggle="tab" aria-expanded="true">
+                                {{typeVulnerabilite.description}}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    
+                   
                     <li role="presentation" class="">
                        
                         <a href="#add" data-toggle="tab" aria-expanded="false">
@@ -36,6 +25,7 @@
                         </a>
                     </li>
                 </ul>
+                
                 <!--end Tabs-->
 
                 <!-- Tabs content -->
@@ -110,85 +100,38 @@
                                                             </th>
                                                         </tr>
                                                     </tfoot>
-                                                    <tbody>                                         
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                VM001
-                                                            </td>
-                                                            <td>
-                                                               blbla
-                                                            </td>
-                                                            <td>
-                                                               3
-                                                            </td>
-                                        
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
+                                                    <tbody>      
+                                                        {% for vulnerabilite in all %}  
                                                         <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                VM001
-                                                            </td>
-                                                            <td>
-                                                               blbla
-                                                            </td>
-                                                            <td>
-                                                               3
-                                                            </td>
-                                        
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                <td class="sorting_1">
+                                                                    {{vulnerabilite.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{vulnerabilite.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{vulnerabilite.menace}}
+                                                                </td>
+                                            
+                                                                <td>
                                                                     
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                VM001
-                                                            </td>
-                                                            <td>
-                                                               blbla
-                                                            </td>
-                                                            <td>
-                                                               3
-                                                            </td>
-                                        
-                                                            <td>
+                                                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                        
+                                                                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                            <i class="material-icons">edit</i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
                                                                 
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                           
+                                            
+                                                        </tbody>
                                                        
-                                        
-                                                    </tbody>
                                                 </table>
                                                 <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
                                                     Showing 1 to 10 of 57 entries
@@ -306,16 +249,17 @@
                                                         </th>
                                                     </tr>
                                                 </tfoot>
-                                                <tbody>                                         
+                                                <tbody>      
+                                                {% for vulnerabilite in all %}
                                                 <tr role="row" class="odd">
                                                         <td class="sorting_1">
-                                                            VM001
+                                                            {{vulnerabilite.reference}}
                                                         </td>
                                                         <td>
-                                                           blbla
+                                                            {{vulnerabilite.description}}
                                                         </td>
                                                         <td>
-                                                           3
+                                                            {{vulnerabilite.menace}}
                                                         </td>
                                     
                                                         <td>
@@ -332,56 +276,7 @@
                                                         
                                                         </td>
                                                     </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            VM001
-                                                        </td>
-                                                        <td>
-                                                           blbla
-                                                        </td>
-                                                        <td>
-                                                           3
-                                                        </td>
-                                    
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            VM001
-                                                        </td>
-                                                        <td>
-                                                           blbla
-                                                        </td>
-                                                        <td>
-                                                           3
-                                                        </td>
-                                    
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
+                                                    {% endfor %}
                                                    
                                     
                                                 </tbody>

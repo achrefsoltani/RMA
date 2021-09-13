@@ -1,0 +1,3 @@
+{% extends 'root/table.html' %}
+{% block  tabContent %}
+{% endblock %}
