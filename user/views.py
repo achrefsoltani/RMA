@@ -7,3 +7,6 @@ date = datetime.now
 
 def profile(request):
     return render(request, 'user/profile.html', {'date':date})
+
+def auth(request):
+    return render(request, 'user/auth.html', {'date':date})
