@@ -8,8 +8,11 @@ date = datetime.now
 # Create your views here.
 
 def list(request):
-
-    vulnerabilites = vulnerabilite.objects.all()
-    typesVulnerabilites =  typeVulnerabilite.objects.all()
+    if 'search' in request.GET:
+        search=request.GET['search']
+        vulnerabilites=vulnerabilite.objects.filter(description__icontains=search)
+    else:
+        vulnerabilites = vulnerabilite.objects.all()
+    typesVulnerabilites =  typeVulnerabilite.objects.all()   
                                
     return render(request, 'vulnerabilite/list.html', {'all':vulnerabilites, 'allType':typesVulnerabilites})

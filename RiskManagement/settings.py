@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'session',
     'vulnerabilite',
     'user',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

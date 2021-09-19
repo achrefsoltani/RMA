@@ -31,9 +31,11 @@
                                     <div class="card">
                                         <div class="header">
                                             <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                                <form>
                                                 <label>
-                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
+                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
                                                 </label>
+                                            </form>
                                                 
                                             </div>      
                                         </div>
@@ -101,25 +103,27 @@
                                                                
                                                             </tr>
                                                     </tfoot>
-                                                    <tbody>                                         
+                                                    <tbody> 
+                                                        {% for mesure in all %}                                      
                                                     <tr role="row" class="odd">
                                                             <td class="sorting_1">
-                                                                
+                                                                {{mesure.actif_critique.id}}
                                                             </td>
                                                             <td>
-                                                               
+                                                                {{mesure.actif_critique.description}}
                                                             </td>
                                                             <td>
-                                                               
+                                                                {{mesure.reference}}
                                                             </td>
                                                             <td>
-                                                                
+                                                                {{mesure.description}}
                                                              </td>
                                                              <td>
-                                                                
+                                                                {{mesure.etat}}
                                                              </td>
 
                                                         </tr>
+                                                        {% endfor %}
                                                         
                                         
                                                     </tbody>

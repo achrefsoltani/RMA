@@ -7,5 +7,9 @@ date = datetime.now
 # Create your views here.
 
 def list(request):
-    all_impacts= impact.objects.all()
-    return render(request, 'impact/list.html', {'date':date},{'all':all_impacts})
+    if 'search' in request.GET:
+        search=request.GET['search']
+        all_impacts=impact.objects.filter(description__icontains=search)
+    else:
+        all_impacts= impact.objects.all()
+    return render(request, 'impact/list.html', {'all':all_impacts})

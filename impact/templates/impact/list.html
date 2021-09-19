@@ -50,9 +50,11 @@
                                     <div class="card">
                                         <div class="header">
                                             <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                                <form>
                                                 <label>
-                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
+                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
                                                 </label>
+                                                </form>
                                                 <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
                                                     Nouvel impact
                                                 </button>
@@ -126,22 +128,23 @@
                                                                 </th>
                                                             </tr>
                                                     </tfoot>
-                                                    <tbody>                                         
+                                                    <tbody>   
+                                                        {% for impact in all %}                                      
                                                     <tr role="row" class="odd">
                                                             <td class="sorting_1">
-                                                                IRC001
+                                                                {{impact.reference}}
                                                             </td>
                                                             <td>
-                                                               Reputation
+                                                                {{impact.type}}
                                                             </td>
                                                             <td>
-                                                               2
+                                                                {{impact.faible}}
                                                             </td>
                                                             <td>
-                                                                3
+                                                                {{impact.moyen}}
                                                              </td>
                                                              <td>
-                                                                1
+                                                                {{impact.fort}}
                                                              </td>
                                                                
                                                             <td>
@@ -158,38 +161,7 @@
                                                             
                                                             </td>
                                                         </tr>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                IRC001
-                                                            </td>
-                                                            <td>
-                                                               Reputation
-                                                            </td>
-                                                            <td>
-                                                               2
-                                                            </td>
-                                                            <td>
-                                                                3
-                                                             </td>
-                                                             <td>
-                                                                1
-                                                             </td>
-                                                               
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                                        
+                                                       {%endfor%}
                                         
                                                     </tbody>
                                                 </table>
