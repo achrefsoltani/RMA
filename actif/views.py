@@ -3,6 +3,7 @@ from datetime import datetime
 from .models import actifCritique
 from .models import actif
 from .filters import ActifFilter
+from django.core.paginator import Paginator
 
 date = datetime.now
 
@@ -14,7 +15,16 @@ def list(request):
         actifs=actif.objects.filter(description__icontains=search)
     else:    
         actifs= actif.objects.all()
-    
-    
-    
-    return render(request, 'actif/list.html', {'all':actifs})
+      
+    paginator= Paginator(actifs, per_page=3)
+    page_number= request.GET.get('page', 1)
+    page_obj= paginator.get_page(page_number)
+    return render(
+        request, 
+        'actif/list.html',
+        {
+            'all':page_obj.object_list,
+            'paginator':paginator,
+            'page_number': int(page_number)
+        }
+    )
