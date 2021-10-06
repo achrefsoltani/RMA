@@ -24,7 +24,7 @@ class actif(models.Model):
     criticite_affaire = models.IntegerField(null=True)
     cid = models.IntegerField(null=True)
     proprietaire = models.CharField(max_length=50, null=True)
-    
+    intervenant = models.CharField(max_length=50, null=True)
     #Relationships
 
     type = models.ForeignKey(typeActif, null=True, on_delete=models.SET_NULL)

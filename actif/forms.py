@@ -13,6 +13,7 @@ class actifForm(ModelForm):
             'criticite_affaire',
             'cid',
             'proprietaire',
+            'intervenant',
             'type',
             'actifs_en_relations'
         ]
