@@ -1,40 +1,77 @@
-{% extends 'root/home.html' %}
+{% extends 'root/home.html' %} 
 
-{% load static %}
+{% load static %} 
 
+{% block content %} 
 
-
-{% block content %}
 {% load widget_tweaks %}
-<div class="card" style="margin:10%;">
-    <div class="header">
-        <h1>Menace</h1>
-    </div>
-    <div class="body">
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form}}
-            <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="Submit">
+
+<div class="card" style="margin: 10%">
+  <div class="header">
+    <h1>Menace</h1>
+  </div>
+
+  <div class="body">
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <!-- ligne 1 -->
+      <div class="col-sm-12">
+        <h2 class="card-inside-title">Type : Type de access</h2>
+      </div>
+
+      <!-- ligne 2 -->
+
+      <div class="col-sm-6">
+        <div class="form-group form-float">
+          <div class="form-line">
+            {% render_field form.reference class="form-control" aria-required="true" %}
+            <label class="form-label">Réference</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group form-float">
+          <div class="form-line">
+            {% render_field form.acteur class="form-control" aria-required="true" %}
+            <label class="form-label">Acteur</label>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <!-- ligne 3 -->
+
+      <div class="col-sm-6">
+        <div class="form-group form-float">
+          <div class="form-line">
+            {% render_field form.motivation class="form-control" aria-required="true" %}
+            <label class="form-label">Motivation</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group form-float">
+          <div class="form-line">
+            {% render_field form.resultat class="form-control" aria-required="true" %}
+            <label class="form-label">Resultat</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ligne 4 -->    
+            <div class="col-md-6">
+                <input class="btn btn-primary" type="" value="Annuler">
             </div>
-        </form>
-
-
-    </div>
-
-
-
+            
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Confirmer Modification">
+            </div>
+    </form>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
