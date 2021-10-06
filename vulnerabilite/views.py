@@ -2,13 +2,22 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 from .forms import vulnerabiliteForm, typeVulnerabiliteForm, vulnerabiliteNoteForm
 from .models import vulnerabilite , typeVulnerabilite , vulnerabiliteNote
+from .models import vulnerabilite
+from .models import typeVulnerabilite
 
 date = datetime.now
 
 # Vulnerabilite views
 
 def list(request):
-    return render(request, 'vulnerabilite/list.html', {'date':date})
+    if 'search' in request.GET:
+        search=request.GET['search']
+        vulnerabilites=vulnerabilite.objects.filter(description__icontains=search)
+    else:
+        vulnerabilites = vulnerabilite.objects.all()
+    typesVulnerabilites =  typeVulnerabilite.objects.all()   
+                               
+    return render(request, 'vulnerabilite/list.html', {'all':vulnerabilites, 'allType':typesVulnerabilites})
 
 
 
@@ -104,3 +113,4 @@ def updateVulnerabiliteNote(request, pk):
     return render(request, "vulnerabilite/vulnerabilite_note_form.html", context)
 
 
+    

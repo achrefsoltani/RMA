@@ -2,13 +2,34 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 from .forms import actifForm , typeActifForm , actifCritiqueForm
 from .models import actif, typeActif , actifCritique
+from .models import actifCritique
+from .models import actif
+from .filters import ActifFilter
+from django.core.paginator import Paginator
 
 date = datetime.now
 
 # Actif views.
 
 def list(request):
-    return render(request, 'actif/list.html', {'date':date})
+    if 'search' in request.GET:
+        search=request.GET['search']
+        actifs=actif.objects.filter(description__icontains=search)
+    else:    
+        actifs= actif.objects.all()
+      
+    paginator= Paginator(actifs, per_page=3)
+    page_number= request.GET.get('page', 1)
+    page_obj= paginator.get_page(page_number)
+    return render(
+        request, 
+        'actif/list.html',
+        {
+            'all':page_obj.object_list,
+            'paginator':paginator,
+            'page_number': int(page_number)
+        }
+    )
 
 
 def ajoutActif(request):
@@ -99,3 +120,4 @@ def updateActifCritique(request, pk):
 
     context = {'form':form}
     return render(request, "actif/actif_critique_form.html", context)
+    

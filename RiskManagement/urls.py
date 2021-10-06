@@ -24,5 +24,6 @@ urlpatterns = [
     path('mesure/', include("mesure.urls")),
     path('session/', include("session.urls")),
     path('vulnerabilite/', include("vulnerabilite.urls")),
+    path('user/', include("user.urls")),
     path('', include("root.urls")),
 ]

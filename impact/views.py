@@ -2,13 +2,19 @@ from django.shortcuts import render , redirect
 from datetime import datetime
 from .forms import impactForm , typeImpactForm, impactNoteForm
 from .models import impact , typeImpact, impactNote
+from .models import impact
 
 date = datetime.now
 
 # Impact views
 
 def list(request):
-    return render(request, 'impact/list.html', {'date':date})
+    if 'search' in request.GET:
+        search=request.GET['search']
+        all_impacts=impact.objects.filter(description__icontains=search)
+    else:
+        all_impacts= impact.objects.all()
+    return render(request, 'impact/list.html', {'all':all_impacts})
 
 
 def ajoutImpact(request):
@@ -101,3 +107,4 @@ def updateImpactNote(request, pk):
 
     context = {'form':form}
     return render(request, "impact/impact_note_form.html", context)
+    

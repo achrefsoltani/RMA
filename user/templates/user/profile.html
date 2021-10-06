@@ -1,0 +1,51 @@
+{% extends 'root/home.html' %}
+
+{% block content %}
+<h1>Profile</h1>
+<div class="col-xs-12 ">
+    <div class="card profile-card">
+        <div class="profile-header">&nbsp;</div>
+        <div class="profile-body">
+            <div class="image-area">
+                <img src="/static/root/images/user-lg.jpg" >
+            </div>
+            <div class="content-area">
+                <h3>Amor Mrabet</h3>
+                <p>Administrateur</p>
+            </div>
+        </div>
+        <div class="profile-footer">
+            <ul>
+                <li>
+                    <span>Référence</span>
+                    <span>1014722</span>
+                </li>
+                <li>
+                    <span>Nom</span>
+                    <span>Mrabet</span>
+                </li>
+                <li>
+                    <span>Prenom</span>
+                    <span>Amor</span>
+                </li>
+                <li>
+                    <span>Email</span>
+                    <span>amor.mrabet@gmail.com</span>
+                </li>
+                <li>
+                    <span>Post</span>
+                    <span>Administrateur</span>
+                </li>
+                <li>
+                    <span>tel</span>
+                    <span>22 222 222</span>
+                </li>
+            </ul>
+            <button type="button" class="btn bg-deep-purple waves-effect">
+                <i class="material-icons">settings</i>
+                <span>Modifier</span>
+            </button>
+        </div>
+    </div>
+{% endblock %}
+

@@ -8,7 +8,13 @@ date = datetime.now
 # Create your views here.
 
 def list(request):
-    return render(request, 'mesure/list.html', {'date':date})
+    if 'search' in request.GET:
+        search=request.GET['search']
+        mesures=mesure.objects.filter(description__icontains=search)
+    else:
+        mesures=mesure.objects.all()
+
+    return render(request, 'mesure/list.html', {'all':mesures,'date':date})
 
 
 def ajoutMesure(request):
@@ -38,3 +44,4 @@ def updateMesure(request, pk):
 
     context = {'form':form}
     return render(request, "mesure/mesure_form.html", context)
+    

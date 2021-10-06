@@ -113,7 +113,7 @@
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="{% url 'home'%}"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="{% url 'profile'%}"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">history</i>Historique</a></li>
                             <li role="separator" class="divider"></li>
@@ -195,10 +195,11 @@
         {% block content %}
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Profile</h2>
+                <h2>Home</h2>
             </div>
         </div>
         {% endblock %}
+       
         
     </section>
 
@@ -226,6 +227,8 @@
     {% block scripts%}
 
     {% endblock %}
+   
+    
 </body>
 
 </html>
