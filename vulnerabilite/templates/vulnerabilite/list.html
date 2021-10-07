@@ -19,7 +19,7 @@
                    
                     <li role="presentation" class="">
                        
-                        <a href="#add" data-toggle="tab" aria-expanded="false">
+                        <a href="{% url 'addTypeVulnerabilite' %}" >
                             <i class="material-icons">add_box</i>
                             
                         </a>
@@ -268,11 +268,11 @@
                                                             
                                                             <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
                                                                 
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                <a href="{% url 'updateVulnerabilite' pk=vulnerabilite.id %}" class="btn bg-orange waves-effect" role="button">
                                                                     <i class="material-icons">edit</i>
                                                                 </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
+                                                                <a href="{% url 'deleteVulnerabilite' pk=vulnerabilite.id %}" class="btn bg-red waves-effect" role="button">
+                                                                    <i class="material-icons">Supprimer</i>
                                                                 </a>
                                                             </div>
                                                         

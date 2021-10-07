@@ -58,6 +58,6 @@ class actifCritique(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.actif.description
+        return self.actif.reference + " -- " + self.session.description
 
     

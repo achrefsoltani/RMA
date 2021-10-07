@@ -7,7 +7,9 @@ class vulnerabiliteForm(ModelForm):
     
     class Meta:
         model = vulnerabilite
-        fields = '__all__'
+        fields = ['reference',
+                  'description',
+                 ]       
 
 
 class typeVulnerabiliteForm(ModelForm):

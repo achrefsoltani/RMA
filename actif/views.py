@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from datetime import datetime
-from .forms import actifForm , typeActifForm , actifCritiqueForm
+from .forms import ACform, actifForm , typeActifForm , actifCritiqueForm
 from .models import actif, typeActif , actifCritique
 from .models import actifCritique
 from .models import actif
@@ -35,19 +35,21 @@ def list(request):
 def ajoutActif(request):
 
     form = actifForm()
+    form2 = ACform()
     if request.method == 'POST':
         form = actifForm(request.POST)
         if form.is_valid():
             form.save()
+            
             return redirect('listActifs')
 
-    context = {'form':form}
+    context = {'form':form , 'form2': form2}
 
     return render(request, "actif/actif_form.html", context)
 
 def updateActif(request, pk):
     actif_pk = actif.objects.get(id=pk)
-
+    actifs_critiques = actifCritique.objects.filter(actif = actif_pk)
     form = actifForm(instance=actif_pk)
 
     if request.method == 'POST':
@@ -57,8 +59,17 @@ def updateActif(request, pk):
             form.save()
             return redirect('listActifs')
 
-    context = {'form':form}
+    context = {'form':form, 'actifs':actif_pk.actifs_en_relations.all(), 'actifC': actifs_critiques.all()}
     return render(request, "actif/actif_form.html", context)
+
+def deleteActif(request, pk):
+    id = int(pk)
+    try :
+        actif_to_delete = actif.objects.get(id=id)
+    except actif.DoesNotExist :
+        return redirect('listActifs')
+    actif_to_delete.delete()
+    return redirect('listActifs')
 
 # Type Actif views
 

@@ -28,7 +28,7 @@ def ajoutVulnerabilite(request):
         form = vulnerabiliteForm(request.POST)
         if form.is_valid:
             form.save()
-            return redirect('/')
+            return redirect('listVulnerabilites')
 
     context = {'form':form}
 
@@ -50,6 +50,14 @@ def updateVulnerabilite(request, pk):
     context = {'form':form}
     return render(request, "vulnerabilite/vulnerabilite_form.html", context)
 
+def deleteVulnerabilite(request, pk):
+    id = int(pk)
+    try :
+        vulnerabilite_to_delete = vulnerabilite.objects.get(id=id)
+    except vulnerabilite.DoesNotExist :
+        return redirect('listVulnerabilites')
+    vulnerabilite_to_delete.delete()
+    return redirect('listVulnerabilites')
 
 # Type Vulnerabilite views
 

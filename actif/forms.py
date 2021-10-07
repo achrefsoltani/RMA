@@ -14,8 +14,7 @@ class actifForm(ModelForm):
             'cid',
             'proprietaire',
             'intervenant',
-            'type',
-            'actifs_en_relations'
+            
         ]
 
 
@@ -31,3 +30,6 @@ class actifCritiqueForm(ModelForm):
         model = actifCritique
         fields = '__all__'
        
+
+class ACform(forms.Form):
+    reference = forms.CharField(max_length=50)

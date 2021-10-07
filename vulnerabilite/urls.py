@@ -14,4 +14,6 @@ urlpatterns = [
 
     path('add/', views.ajoutVulnerabilite, name="addVulnerabilite"),
     path('update/<str:pk>/', views.updateVulnerabilite, name="updateVulnerabilite"),
+    path('delete/<str:pk>/', views.deleteVulnerabilite, name="deleteVulnerabilite")
+
 ]

@@ -87,16 +87,18 @@
                 Actifs en relation:
                 <br>
                 <table style=" border: 2px solid black; width: 80%; ">
+                    {% for actif in actifs %}
                     <tr>
-                        <td>Actif 1</td>
+                        <td>
+                            <a href="{% url 'updateActif' pk=actif.id %}" > {{actif.reference}}  -- {{actif.description}}</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Actif 1</td>
-                    </tr>
-                    <tr>
-                        <td>Actif 1</td>
-                    </tr>
+                    {% endfor %}
+                    
+                    
                 </table>
+                
+
 
             </div>
 
@@ -104,15 +106,14 @@
                 Mesures existantes de sécurité :
                 <br>
                 <table style=" border: 2px solid black; width: 80%">
+                    {% for actif in actifC %}
                     <tr>
-                        <td>Mesure 1</td>
+                        <td>
+                            <a href="{% url 'updateMesure' pk=actif.mesure.id %}" > {{actif}}  -- {{actif.mesure.description}} ({{actif.mesure.etat}})</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Mesure 1</td>
-                    </tr>
-                    <tr>
-                        <td>Mesure 1</td>
-                    </tr>
+                    {% endfor %}
+                    
                 </table>
 
             </div>
@@ -120,7 +121,7 @@
 
             <!-- ligne 6 -->    
             <div class="col-md-6">
-                <input class="btn btn-primary" type="" value="Annuler">
+                <input class="btn btn-primary" onclick="window.location.href='{% url 'listActifs'%}'" value="Annuler">
             </div>
             
             <div class="form-group">
@@ -128,6 +129,7 @@
             </div>
         </form>
 
+        
 
     </div>
 

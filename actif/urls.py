@@ -12,6 +12,9 @@ urlpatterns = [
 
     path('add/', views.ajoutActif, name="addActif"),
     path('update/<str:pk>/', views.updateActif, name="updateActif"),
+    path('delete/<str:pk>/', views.deleteActif, name="deleteActif")
+
+
 
 
 ]
