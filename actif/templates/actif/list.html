@@ -8,34 +8,29 @@
         <div class="card"> 
             <div class="body">
                 <!-- Nav tabs -->
+                
                 <ul class="nav nav-tabs tab-nav-right" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#home" data-toggle="tab" aria-expanded="true">
-                            Appli et serveurs
+                       
+                        <a href="#all" data-toggle="tab" aria-expanded="false">
+                            all
+                            
                         </a>
                     </li>
-                    <li role="presentation" class="">
-                        <a href="#profile" data-toggle="tab" aria-expanded="false">
-                            Réseau et sécurité
+                    {%for typeactif in typeactifs%}
+                    <li role="presentation" >
+                        <a href="#type " data-toggle="tab" aria-expanded="true">
+                            {{typeactif.description}}
                         </a>
                     </li>
-                    <li role="presentation" class="">
-                        <a href="#messages" data-toggle="tab" aria-expanded="false">
-                            Ligne de commande
-                        </a>
-                    </li>
-                    <li role="presentation" class="">
-                        <a href="#settings" data-toggle="tab" aria-expanded="false">
-                            Salle de traitement
-                        </a>
-                    </li>
+                    {%endfor%}
                     <li role="presentation" class="">
                        
                         <a href="#add" data-toggle="tab" aria-expanded="false">
                             <i class="material-icons">add_box</i>
                             
                         </a>
-                    </li>
+                    </li>            
                 </ul>
                 <!--end Tabs-->
 
@@ -43,7 +38,7 @@
                 <div class="tab-content">
                     <!--content tab1-->
                     
-                    <div role="tabpanel" class="tab-pane fade active in" id="home">
+                    <div role="tabpanel" class="tab-pane fade active in" id="all">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="card">
@@ -63,23 +58,7 @@
                                         <div class="body">
                                             <div class="table-responsive">
                                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                                    <div class="dt-buttons" style="margin-bottom: 15px">
-                                                        <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Copy</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>CSV</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Excel</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>PDF</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Print</span>
-                                                        </a>
-                                                    </div>
+                                                    
                                             
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                     <thead>
@@ -107,31 +86,7 @@
                                                                 </th>
                                                             </tr>
                                                     </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th rowspan="1" colspan="1">
-                                                                Réference
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Description
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Criticité d'affaire
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                CID
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Propriétaire
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Intervenant
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Actions
-                                                            </th>
-                                                        </tr>
-                                                    </tfoot>
+                                            
                                                     <tbody>
                                                 {% for actif in all %}                                         
                                                     <tr role="row" class="odd">
@@ -194,193 +149,38 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>    
                     </div>
-                    <div role="tabpanel" class="tab-pane fade" id="messages">
-                        <b>Message Content</b>
-                        <div class="row clearfix">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="card">
-                                
-                                        <div class="header">
-                                            <div id="DataTables_Table_1_filter" class="dataTables_filter">
-                                                <label>
-                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
-                                                </label>
-                                                <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">Nouveau actif</button>
-                                            </div>
-                                           
-                                        </div>
-                                        <div class="body">
-                                            <div class="table-responsive">
-                                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Copy</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>CSV</span></a><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>PDF</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Print</span></a></div>
-                                                
-                                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                                Réference
-                                                            </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                    Description
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 104px;">
-                                                                    Criticité d'affaire
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    CID
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 97px;">
-                                                                    Propriétaire
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
-                                                                    Intervenant
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
-                                                                    Actions
-                                                                </th>
-                                                            </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th rowspan="1" colspan="1">
-                                                                Réference
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Description
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Criticité d'affaire
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                CID
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Propriétaire
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Intervenant
-                                                            </th>
-                                                            <th rowspan="1" colspan="1">
-                                                                Actions
-                                                            </th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody>                                         
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                AAS001
-                                                            </td>
-                                                            <td>
-                                                               
-                                                            </td>
-                                                            <td>
-                                                               3
-                                                            </td>
-                                                            <td>
-                                                               2
-                                                            </td>
-                                                            <td>Atef Ameur</td>
-                                                            <td>Interne</td>
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
+                    
 
-                                                
-                                                        <tr role="row" class="even">
-                                                            <td class="sorting_1">
-                                                                AAS004
-                                                            </td>
-                                                            <td>
-                                                            </td>
-                                                            <td>4</td>
-                                                            <td>1</td>
-                                                            <td>Atef Ameur</td>
-                                                            <td>externe</td>
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                                        <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                AAS005
-                                                            </td>
-                                                            <td></td>
-                                                            <td>3</td>
-                                                            <td>28</td>
-                                                            <td>Atef Ameur</td>
-                                                            <td>Interne</td>
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                    
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                        
-                                                    </tbody>
-                                                </table>
-                                                <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="DataTables_Table_1_previous"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="DataTables_Table_1_next"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" id="settings">
-                        <b>Settings Content</b>
+
+
+                    <div role="tabpanel" class="tab-pane fade active in" id="type">
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="card">
-                            
                                     <div class="header">
                                         <div id="DataTables_Table_1_filter" class="dataTables_filter">
-                                            <label>
-                                                Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
-                                            </label>
-                                            <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">Nouveau actif</button>
-                                        </div>
-                                       
+                                            <form>
+                                    
+                                                <label>
+                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
+                                                </label>
+                                            </form>
+                                            <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
+                                                Nouveau actif
+                                            </button>
+                                        </div>      
                                     </div>
                                     <div class="body">
                                         <div class="table-responsive">
-                                            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Copy</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>CSV</span></a><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Excel</span></a><a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>PDF</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Print</span></a></div>
-                                            
+                                            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                                
+                                        
                                             <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                 <thead>
                                                     <tr role="row">
@@ -432,21 +232,23 @@
                                                         </th>
                                                     </tr>
                                                 </tfoot>
-                                                <tbody>                                         
+                                                <tbody>
+                                                {%for actifsByType in actifsByTypes %}
+                                                                                    
                                                 <tr role="row" class="odd">
                                                         <td class="sorting_1">
-                                                            AAS001
+                                                            {{actifsByType.reference}}
                                                         </td>
                                                         <td>
-                                                           
+                                                            {{actifsByType.description}}
                                                         </td>
                                                         <td>
-                                                           3
+                                                            {{actifsByType.criticite_affaire}}
                                                         </td>
                                                         <td>
-                                                           2
+                                                            {{actifsByType.cid}}
                                                         </td>
-                                                        <td>Atef Ameur</td>
+                                                        <td>{{actifsByType.proprietaire}}</td>
                                                         <td>Interne</td>
                                                         <td>
                                                             
@@ -462,109 +264,54 @@
                                                         
                                                         </td>
                                                     </tr>
-                                                    <tr role="row" class="even">
-                                                        <td class="sorting_1">
-                                                            AAS002
-                                                        </td>
-                                                        <td></td>
-                                                        <td>4</td>
-                                                        <td>3</td>
-                                                        <td>Atef Ameur</td>
-                                                        <td>Interne</td>
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            AAS003
-                                                        </td>
-                                                        <td></td>
-                                                        <td>2</td>
-                                                        <td>4</td>
-                                                        <td>Atef Ameur</td>
-                                                        <td>externe</td>
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="even">
-                                                        <td class="sorting_1">
-                                                            AAS004
-                                                        </td>
-                                                        <td>
-                                                        </td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>Atef Ameur</td>
-                                                        <td>externe</td>
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            AAS005
-                                                        </td>
-                                                        <td></td>
-                                                        <td>3</td>
-                                                        <td>28</td>
-                                                        <td>Atef Ameur</td>
-                                                        <td>Interne</td>
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
-                                                    </tr>
-                                    
+                                                    {%endfor%}
+                                                
                                                 </tbody>
-                                            </table>
-                                            <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="DataTables_Table_1_previous"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="DataTables_Table_1_next"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div>
+                                                </table>
+
+                                        <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
+                                            Showing 1 to 10 of 57 entries
                                         </div>
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
+
+
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
+                                                        Previous
+                                                    </a>
+                                                </li>
+                                                {%for i in paginator.page_range %}
+                                                <li class="paginate_button   {% if i == page_number %} active {% endif%}">
+                                                    <a href='?page={{ i }}' aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
+                                                        {{i}}
+                                                    </a>
+                                                </li>
+                                                {%endfor%}
+                                                <li class="paginate_button next" id="DataTables_Table_1_next">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">
+                                                        Next
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>    
+                </div>
+                
+
+
+
+
+
+
+
+
+
 
                     <div role="tabpanel" class="tab-pane fade active in" id="add">
                         <b>Formulaire Ajout type</b>
