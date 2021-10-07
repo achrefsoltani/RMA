@@ -19,7 +19,7 @@
                     </li>
                     {%for typeactif in typeactifs%}
                     <li role="presentation" >
-                        <a href="#type " data-toggle="tab" aria-expanded="true">
+                        <a href="#{{typeactif.reference}}"  data-toggle="tab" aria-expanded="true">
                             {{typeactif.description}}
                         </a>
                     </li>
@@ -53,6 +53,7 @@
                                                 <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
                                                     Nouveau actif
                                                 </button>
+                                              
                                             </div>      
                                         </div>
                                         <div class="body">
@@ -88,37 +89,40 @@
                                                     </thead>
                                             
                                                     <tbody>
-                                                {% for actif in all %}                                         
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                {{actif.reference}}
-                                                            </td>
-                                                            <td>
-                                                                {{actif.description}}
-                                                            </td>
-                                                            <td>
-                                                                {{actif.criticite_affaire}}
-                                                            </td>
-                                                            <td>
-                                                                {{actif.cid}}
-                                                            </td>
-                                                            <td>{{actif.proprietaire}}</td>
-                                                            <td>Interne</td>
-                                                            <td>
-                                                                
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                {% for actif in all %}  
+                                                                                      
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{actif.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{actif.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{actif.criticite_affaire}}
+                                                                </td>
+                                                                <td>
+                                                                    {{actif.cid}}
+                                                                </td>
+                                                                <td>{{actif.proprietaire}}</td>
+                                                                <td>Interne</td>
+                                                                <td>
                                                                     
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                                        {% endfor %}
+                                                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                        
+                                                                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                            <i class="material-icons">edit</i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                
+                                                                </td>
+                                                            </tr>
+                                                         
+                                                    
+                                                {% endfor %}
                                                     </tbody>
                                                     </table>
 
@@ -158,8 +162,9 @@
                     
 
 
-
-                    <div role="tabpanel" class="tab-pane fade active in" id="type">
+                    {%for typeactif in typeactifs%}
+                    <div role="tabpanel" class="tab-pane fade active in" id="{{typeactif.reference}}">
+                        
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="card">
@@ -174,6 +179,7 @@
                                             <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
                                                 Nouveau actif
                                             </button>
+                                            
                                         </div>      
                                     </div>
                                     <div class="body">
@@ -233,22 +239,25 @@
                                                     </tr>
                                                 </tfoot>
                                                 <tbody>
-                                                {%for actifsByType in actifsByTypes %}
+                                                {%for actif in all %}
+                                                   {% if actif.type.reference == typeactif.reference %}
+                                                
+                                                
                                                                                     
                                                 <tr role="row" class="odd">
                                                         <td class="sorting_1">
-                                                            {{actifsByType.reference}}
+                                                            {{actif.reference}}
                                                         </td>
                                                         <td>
-                                                            {{actifsByType.description}}
+                                                            {{actif.description}}
                                                         </td>
                                                         <td>
-                                                            {{actifsByType.criticite_affaire}}
+                                                            {{actif.criticite_affaire}}
                                                         </td>
                                                         <td>
-                                                            {{actifsByType.cid}}
+                                                            {{actif.cid}}
                                                         </td>
-                                                        <td>{{actifsByType.proprietaire}}</td>
+                                                        <td>{{actif.proprietaire}}</td>
                                                         <td>Interne</td>
                                                         <td>
                                                             
@@ -264,7 +273,9 @@
                                                         
                                                         </td>
                                                     </tr>
+                                                    {%endif%}
                                                     {%endfor%}
+
                                                 
                                                 </tbody>
                                                 </table>
@@ -302,6 +313,7 @@
                         </div>
                     </div>    
                 </div>
+                {%endfor%}
                 
 
 

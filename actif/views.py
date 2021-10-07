@@ -31,14 +31,14 @@ def list(request):
             'typeactifs': typeactifs
         })
 
-def listByType(request, type):  
-    actifsByTypes= actif.objects.filter(type=type)
+def listByType(request):  
+    actifsByTypes= actif.objects.all()
 
     return render(
         request, 
-        'actif/list.html',
+        'actif/listByType.html',
         {
             
-         'actifsByType': actifsByTypes
+         'actifsByTypes': actifsByTypes
         }
     )
