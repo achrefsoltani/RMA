@@ -1,6 +1,20 @@
 {% extends 'root/home.html' %}
 
 {% block content %}
-<h1>Choix</h1>
+<h1>Nouvelle Session {{pk}} : Choix d'actif Critiques</h1>
 
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card"> 
+            <div class="body">
+                {%for actif in actifs%}
+                    {{actif}} 
+                    
+                    <input class="btn btn-primary"  value="Ajouter à la session">
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
