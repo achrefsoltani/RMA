@@ -39,3 +39,4 @@ def updateMenace(request, pk):
 
     context = {'form':form}
     return render(request, "menace/menace_form.html", context)
+

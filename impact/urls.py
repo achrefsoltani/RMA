@@ -14,4 +14,6 @@ urlpatterns = [
 
     path('add/', views.ajoutImpact, name="addimpact"),
     path('update/<str:pk>/', views.updateImpact, name="updateImpact"),
+    path('delete/<str:pk>/', views.deleteImpact, name="deleteImpact")
+
 ]

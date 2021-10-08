@@ -6,4 +6,5 @@ urlpatterns = [
 
     path('add/', views.ajoutMenace, name="addMenace"),
     path('update/<str:pk>/', views.updateMenace, name="updateMenace"),
+    
 ]

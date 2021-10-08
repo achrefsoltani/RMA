@@ -33,7 +33,7 @@
                     </li>
                     <li role="presentation" class="">
                        
-                        <a href="#add" data-toggle="tab" aria-expanded="false">
+                        <a href="{% url 'addTypeImpact' %}"">
                             <i class="material-icons">add_box</i>
                             
                         </a>
@@ -154,7 +154,7 @@
                                                                     <a href="{% url 'updateImpact' pk=impact.id %}" class="btn bg-orange waves-effect" role="button">
                                                                         <i class="material-icons">edit</i>
                                                                     </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                    <a href="{% url 'deleteImpact' pk=impact.id %}" class="btn bg-red waves-effect" role="button">
                                                                         <i class="material-icons">delete</i>
                                                                     </a>
                                                                 </div>

@@ -19,12 +19,12 @@ def list(request):
 
 def ajoutImpact(request):
 
-    form = impactForm()
+    form = impactForm(initial={'reference':'TLA'})
     if request.method == 'POST':
         form = impactForm(request.POST)
         if form.is_valid:
             form.save()
-            return redirect('/')
+            return redirect('listImpacts')
 
     context = {'form':form}
 
@@ -45,6 +45,16 @@ def updateImpact(request, pk):
 
     context = {'form':form}
     return render(request, "impact/impact_form.html", context)
+
+def deleteImpact(request, pk):
+    id = int(pk)
+    try :
+        impact_to_delete = impact.objects.get(id=id)
+    except impact.DoesNotExist :
+        return redirect('listImpacts')
+    impact_to_delete.delete()
+    return redirect('listImpacts')
+
 
 
 # Type Impact views

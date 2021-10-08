@@ -8,7 +8,14 @@ class impactForm(ModelForm):
     
     class Meta:
         model = impact
-        fields = '__all__'
+        fields = [
+            'reference',
+            'description',
+            'faible',
+            'moyen',
+            'fort',    
+        ]
+
 
 
 class typeImpactForm(ModelForm):

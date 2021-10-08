@@ -21,12 +21,12 @@ class typeVulnerabilite(models.Model):
 class vulnerabilite(models.Model):
 
     reference = models.CharField(max_length=50, null=True)
-    description = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=200, null=True)
 
     #Relationships
 
     type = models.ForeignKey(typeVulnerabilite, null=True, on_delete=models.SET_NULL)
-    menace = models.ForeignKey(menace, null=True, on_delete=models.SET_NULL)
+    menace = models.CharField(max_length=200, null=True)
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)

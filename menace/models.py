@@ -4,7 +4,15 @@ from django.db import models
 
 class menace(models.Model):
 
-    type = models.CharField(max_length=50, null=True)
+    CHOICES = (
+        ('HR','Acteur Humain & Access réseau'),
+        ('HP','Acteur Humain & Access physique'),
+        ('PS','Problèmes systèmes'),
+        ('AP','Autres Problèmes')
+
+    )
+
+    type = models.CharField(max_length=50, choices= CHOICES ,null=True)
     reference = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=50, null=True)
     access = models.CharField(max_length=50, null=True)

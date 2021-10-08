@@ -81,7 +81,6 @@ def ajoutTypeActif(request):
         if form.is_valid():
             form.save()
             return redirect('listActifs')
-
     context = {'form':form}
 
     return render(request, "actif/type_actif_form.html", context)
