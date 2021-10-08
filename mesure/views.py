@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime
 from .models import mesure
+from django.core.paginator import Paginator
 
 date = datetime.now
 
@@ -13,4 +14,15 @@ def list(request):
     else:
         mesures=mesure.objects.all()
 
-    return render(request, 'mesure/list.html', {'all':mesures,'date':date})
+    paginator= Paginator(mesures, per_page=10)
+    page_number= request.GET.get('page', 1)
+    page_obj= paginator.get_page(page_number)
+    return render(
+        request, 
+        'mesure/list.html',
+        {
+            'all':page_obj.object_list,
+            'paginator':paginator,
+            'page_number': int(page_number),
+            
+        })
