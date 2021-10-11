@@ -56,10 +56,7 @@
                                         <div class="body">
                                             <div class="table-responsive">
                                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                                    <div class="dt-buttons" style="margin-bottom: 15px">
-                                                        
-                                                    </div>
-                                            
+                                                    
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                     <thead>
                                                         <tr role="row">
@@ -82,74 +79,48 @@
                                                                 <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
                                                                     Actions
                                                                 </th>
-                                                            </tr>
+                                                        </tr>
                                                     </thead>
-                                                    <tfoot>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                                Réference
-                                                            </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                    Type d'impact
-                                                                </th>
-                                                                
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Impact faible
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Impact Moyenne
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Impact fort
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
-                                                                    Actions
-                                                                </th>
-                                                            </tr>
-                                                    </tfoot>
                                                     <tbody>   
                                                         {% for impact in all %}                                      
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                {{impact.reference}}
-                                                            </td>
-                                                            <td>
-                                                                {{impact.type}}
-                                                            </td>
-                                                            <td>
-                                                                {{impact.faible}}
-                                                            </td>
-                                                            <td>
-                                                                {{impact.moyen}}
-                                                             </td>
-                                                             <td>
-                                                                {{impact.fort}}
-                                                             </td>
-                                                               
-                                                            <td>
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{impact.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{impact.type}}
+                                                                </td>
+                                                                <td>
+                                                                    {{impact.faible}}
+                                                                </td>
+                                                                <td>
+                                                                    {{impact.moyen}}
+                                                                </td>
+                                                                <td>
+                                                                    {{impact.fort}}
+                                                                </td>
                                                                 
-                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                <td>
                                                                     
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                        <i class="material-icons">edit</i>
-                                                                    </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                        <i class="material-icons">delete</i>
-                                                                    </a>
-                                                                </div>
-                                                            
-                                                            </td>
-                                                        </tr>
-                                                       {%endfor%}
-                                        
+                                                                    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                        
+                                                                        <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                            <i class="material-icons">edit</i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                            <i class="material-icons">delete</i>
+                                                                        </a>
+                                                                    </div>
+                                                                
+                                                                </td>
+                                                            </tr>
+                                                        {%endfor%}
                                                     </tbody>
                                                 </table>
                                                 <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
                                                     Showing 1 to 10 of 57 entries
                                                 </div>
                                                 <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
-        
-        
                                                     <ul class="pagination">
                                                         <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
                                                             <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
@@ -170,12 +141,14 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                        </div>
-                                    </div>
+                                            </div>
+                                        </div>        
+                                    </div>    
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div>        
+                        </div>        
+                    </div>        
+                        
                     <!--end content tab2-->
 
 
@@ -196,16 +169,12 @@
                                             <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
                                                 Nouvel impact
                                             </button>
-                                            typeeeeeeeeeeee
                                         </div>      
                                     </div>
                                     <div class="body">
                                         <div class="table-responsive">
                                             <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                                <div class="dt-buttons" style="margin-bottom: 15px">
-                                                    
-                                                </div>
-                                        
+                                                
                                             <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                 <thead>
                                                     <tr role="row">
@@ -228,76 +197,50 @@
                                                             <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
                                                                 Actions
                                                             </th>
-                                                        </tr>
-                                                </thead>
-                                                <tfoot>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                            Réference
-                                                        </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                Type d'impact
-                                                            </th>
-                                                            
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                Impact faible
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                Impact Moyenne
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                Impact fort
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
-                                                                Actions
-                                                            </th>
-                                                        </tr>
-                                                </tfoot>
-                                                <tbody>   
-                                                {% for impact in all %}  
-                                                {% if impact.type.reference == typeImpact.reference %}                                    
-                                                <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            {{impact.reference}}
-                                                        </td>
-                                                        <td>
-                                                            {{impact.type}}
-                                                        </td>
-                                                        <td>
-                                                            {{impact.faible}}
-                                                        </td>
-                                                        <td>
-                                                            {{impact.moyen}}
-                                                         </td>
-                                                         <td>
-                                                            {{impact.fort}}
-                                                         </td>
-                                                           
-                                                        <td>
-                                                            
-                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-                                                                
-                                                                <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
-                                                                <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
-                                                                    <i class="material-icons">delete</i>
-                                                                </a>
-                                                            </div>
-                                                        
-                                                        </td>
                                                     </tr>
-                                                    {%endif%}
-                                                   {%endfor%}
-                                    
+                                                </thead>
+                                                <tbody>   
+                                                    {% for impact in all %} 
+                                                    {% if impact.type.reference == typeImpact.reference %}                                      
+                                                    <tr role="row" class="odd">
+                                                            <td class="sorting_1">
+                                                                {{impact.reference}}
+                                                            </td>
+                                                            <td>
+                                                                {{impact.type}}
+                                                            </td>
+                                                            <td>
+                                                                {{impact.faible}}
+                                                            </td>
+                                                            <td>
+                                                                {{impact.moyen}}
+                                                            </td>
+                                                            <td>
+                                                                {{impact.fort}}
+                                                            </td>
+                                                            
+                                                            <td>
+                                                                
+                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                    
+                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                        <i class="material-icons">edit</i>
+                                                                    </a>
+                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </div>
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        {%endif%}
+                                                    {%endfor%}
                                                 </tbody>
                                             </table>
                                             <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
                                                 Showing 1 to 10 of 57 entries
                                             </div>
                                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
-    
-    
                                                 <ul class="pagination">
                                                     <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
                                                         <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
@@ -318,12 +261,13 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                    </div>
-                                </div>
+                                        </div>
+                                    </div>        
+                                </div>    
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </div>        
+                    </div>        
+                </div>  
                 {%endfor%}
 
 
