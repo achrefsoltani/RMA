@@ -57,9 +57,7 @@
                                         <div class="body">
                                             <div class="table-responsive">
                                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                                    <div class="dt-buttons" style="margin-bottom: 15px">
-                                                        
-                                                    </div>
+                                                    
                                             
                                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                     <thead>
@@ -171,9 +169,7 @@
                                     <div class="body">
                                         <div class="table-responsive">
                                             <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                                <div class="dt-buttons" style="margin-bottom: 15px">
-                                                    
-                                                </div>
+                                               
                                         
                                             <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                 <thead>
@@ -196,7 +192,7 @@
                                                 
                                                 <tbody>      
                                                 {% for vulnerabilite in all %}
-                                                 {% if vulnerabilite.type.reference == typeVulnerabilite.reference %}
+                                                    {% if vulnerabilite.type.reference == typeVulnerabilite.reference %}
                                                 <tr role="row" class="odd">
                                                         <td class="sorting_1">
                                                             {{vulnerabilite.reference}}
@@ -269,7 +265,7 @@
 
                     
 
-                    <div role="tabpanel" class="tab-pane fade active in" id="add">
+                    <div role="tabpanel" class="tab-pane fade  in" id="add">
                         <b>Formulaire Ajout type</b>
                         <p>
                            Formulaire ici
