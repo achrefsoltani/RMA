@@ -2,13 +2,14 @@ from django.shortcuts import redirect, render
 from datetime import datetime
 
 from actif.models import actif, actifCritique
+from vulnerabilite.models import typeVulnerabilite, vulnerabilite, vulnerabiliteNote
 from .models import session
 from actif.models import actif, typeActif , actifCritique
 from django.core.paginator import Paginator
 
 date = datetime.now
 
-# Create your views here.
+# Session
 
 def list(request , **args):
 
@@ -26,7 +27,7 @@ def new(request , **args):
     pk = new_session.id
     return redirect('choixAc', pk)
 
-
+# Actifs Critiques
 def choixAc(request , pk):
     typeactifs= typeActif.objects.all()
     
@@ -43,12 +44,9 @@ def choixAc(request , pk):
     current_session = session.objects.get(id=pk)
     try:
         ac_session = actifCritique.objects.filter(session__pk = current_session.id)
-        print(ac_session)
         a_session = [ac.actif for ac in ac_session]
     except:
         a_session = None
-        print('fail')
-    
     
     return render(request, 'session/choixAc.html', {
             'all':page_obj.object_list,
@@ -60,6 +58,7 @@ def choixAc(request , pk):
         })
 
 def addAc(request , pk, pka):
+
     actifChoisi = actif.objects.get(id = pka)
     sessionEnCours = session.objects.get(id = pk)
     actifCritique.objects.create(session = sessionEnCours, actif = actifChoisi)
@@ -71,14 +70,38 @@ def delAc(request , pk, pka):
     actifCritique.objects.filter(session = sessionEnCours, actif = actifChoisi).delete()
     return redirect('choixAc', pk)
 
+def listAc(request , pk):
+    current_session = session.objects.get(id=pk)
+    try:
+        ac_session = actifCritique.objects.filter(session__pk = pk)
+        
+    except:
+        ac_session = None
 
-def listAc(request , **args):
 
-    return 
+    return render(request, 'session/listActifs.html', {'date':date, 'actifs':ac_session, 'session':current_session})
 
-def VulAc(request , **args):
+# Vulnérabilités Actif critique
+def VulAc(request , pk):
+    if request.method == 'POST' and request.POST.get('note').isdigit():
+        
+        desc =request.POST.get('desc')
+        note =request.POST.get('note')
+        vulChoisi = vulnerabilite.objects.filter(description = desc)
+        print(vulChoisi)
+        actifEnCours = actifCritique.objects.get(id = pk)
+        vulnerabiliteNote.objects.create(vulnerabilite = vulChoisi[0], actif = actifEnCours, note=note)
+            
+    types = typeVulnerabilite.objects.all()
+    vulnerabilites = vulnerabilite.objects.all()
+    vulnerabilites_ac_note = vulnerabiliteNote.objects.filter(actif__pk = pk) 
+    session_id = actifCritique.objects.filter(id=pk)[0].session.id
+    return render(request, 'session/Vulnerabilites.html', {'date':date, 'pk':pk, "types":types, "vuls":vulnerabilites, "vulsAc" : vulnerabilites_ac_note, "id_session":session_id})
 
-    return render(request, 'session/Vulnerabilites.html', {'date':date})
+
+def delVul(request , pk, pkv):
+    vulnerabiliteNote.objects.filter(id = pkv).delete()
+    return redirect('VulAc', pk)
 
 def MenAc(request , **args):
 

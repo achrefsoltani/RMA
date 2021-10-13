@@ -19,4 +19,4 @@ class session(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.reference
+        return str(self.id)

@@ -1,13 +1,93 @@
 {% extends 'root/home.html' %}
 
 {% block content %}
-<h1>Vulnerabilités</h1>
+<h1>Vulnerabilités actif {{pk}}</h1>
+
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card"> 
-            <div class="body">
-            Hello
+            <div class="body" >
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-12">
+                    Description : 
+                        <select name="desc" id="desc">
+                            {%for vul in vuls%}
+                                <option value= '{{vul.description}}'>{{vul.description}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                    Note : 
+                        <input type="number" id="note" name="note" min="0" max="100">
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="btn btn-primary" type="submit" value="Suivant">
+                    </div>
+                </form>
+
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                                                                    Réference 
+                                                                </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 48px;">
+                                                                        Type
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
+                                                                        Description
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Note
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Action
+                                                                    </th>
+                                                                </tr>
+                                                        </thead>
+                                                        
+                                                        <tbody> 
+                                                            {% for v in vulsAc %}                                      
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{v.vulnerabilite.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{v.vulnerabilite.type.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{v.vulnerabilite.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{v.note}}
+                                                                </td>
+                                                                
+                                                                <td>
+                                                                    <a href="{% url 'delVul' pk v.id%}" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                            
+                                            
+                                                        </tbody>
+                </table>
+
+                <div class="col-md-6">
+                    
+                    <input class="btn btn-primary" onclick="window.location.href='{% url 'listAc' id_session%}'" value="Retour">
+                </div>
+            
+                
+
+                <br><br>
             </div>
         </div>
     </div>

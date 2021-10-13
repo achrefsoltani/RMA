@@ -8,6 +8,7 @@ urlpatterns = [
     path('ac/<str:pk>/del/<str:pka>', views.delAc, name="delAc"),
 
     path('ac/<str:pk>/v', views.VulAc, name="VulAc"),
+    path('ac/<str:pk>/v/<str:pkv>/del', views.delVul, name="delVul"),
     path('ac/<str:pk>/M', views.MenAc, name="MenAc"),
 
     path('<str:pk>/choix', views.choixAc, name="choixAc"),
