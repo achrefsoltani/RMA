@@ -28,7 +28,7 @@ def auth(request):
             'date':date
 
             })
-def logout(request):
+def logout_user(request):
     logout(request)
-    messages.success(request,("you were logout!"))  
-    return redirect('home')          
+    messages.success(request,("Vous êtes déconnecté!"))  
+    return redirect('signin')          

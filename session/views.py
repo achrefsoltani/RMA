@@ -9,3 +9,5 @@ date = datetime.now
 def list(request):
     all_sessions= session.objects.all()
     return render(request, 'session/list.html', {'date':date},{'all':all_sessions})
+def details(request):
+    return render(request, 'session/details.html', {'date':date})
