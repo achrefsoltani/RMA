@@ -103,9 +103,16 @@ def delVul(request , pk, pkv):
     vulnerabiliteNote.objects.filter(id = pkv).delete()
     return redirect('VulAc', pk)
 
+# Menaces Actif critique
 def MenAc(request , **args):
 
     return render(request, 'session/menaces.html', {'date':date})
+
+def delMen(request , pk, pkv):
+    
+    return redirect('MenAc', pk)
+
+# Session  
 
 def traitement(request , **args):
 
