@@ -3,19 +3,34 @@ from datetime import datetime
 from .forms import impactForm , typeImpactForm, impactNoteForm
 from .models import impact , typeImpact, impactNote
 from .models import impact
+from .models import typeImpact
+from django.core.paginator import Paginator
 
 date = datetime.now
 
 # Impact views
 
 def list(request):
+    typeImpacts= typeImpact.objects.all()
+
     if 'search' in request.GET:
         search=request.GET['search']
-        all_impacts=impact.objects.filter(description__icontains=search)
-    else:
-        all_impacts= impact.objects.all()
-    return render(request, 'impact/list.html', {'all':all_impacts})
-
+        impacts=impact.objects.filter(description__icontains=search)
+    else:    
+        impacts= impact.objects.all()
+      
+    paginator= Paginator(impacts, per_page=10)
+    page_number= request.GET.get('page', 1)
+    page_obj= paginator.get_page(page_number)
+    return render(
+        request, 
+        'impact/list.html',
+        {
+            'all':page_obj.object_list,
+            'paginator':paginator,
+            'page_number': int(page_number),
+            'typeImpacts':  typeImpacts
+        })
 
 def ajoutImpact(request):
 
@@ -117,4 +132,3 @@ def updateImpactNote(request, pk):
 
     context = {'form':form}
     return render(request, "impact/impact_note_form.html", context)
-    

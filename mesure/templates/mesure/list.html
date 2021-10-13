@@ -9,12 +9,12 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs tab-nav-right" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#home" data-toggle="tab" aria-expanded="true">
-                            Tout
+                        <a href="#all" data-toggle="tab" aria-expanded="true">
+                            all
                         </a>
                     </li>
                     <li role="presentation" class="">
-                        <a href="#profile" data-toggle="tab" aria-expanded="false">
+                        <a href="#encour" data-toggle="tab" aria-expanded="false">
                             En cours
                         </a>
                     </li>
@@ -25,17 +25,17 @@
                 <!-- Tabs content -->
                 <div class="tab-content">
                     <!--content tab1-->
-                    <div role="tabpanel" class="tab-pane fade active in" id="home">
+                    <div role="tabpanel" class="tab-pane fade active in" id="all">
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="card">
                                         <div class="header">
                                             <div id="DataTables_Table_1_filter" class="dataTables_filter">
                                                 <form>
-                                                <label>
-                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
-                                                </label>
-                                            </form>
+                                                    <label>
+                                                        Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
+                                                    </label>
+                                                </form>
                                                 
                                             </div>      
                                         </div>
@@ -43,146 +43,106 @@
                                             <div class="table-responsive">
                                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                                                     <div class="dt-buttons" style="margin-bottom: 15px">
-                                                        <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Copy</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>CSV</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Excel</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>PDF</span>
-                                                        </a>
-                                                        <a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                            <span>Print</span>
-                                                        </a>
+                                                       
                                                     </div>
                                             
-                                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
-                                                    <thead>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                                Réference Actif
-                                                            </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                    Déscription Actif
+                                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
+                                                                    Réference Actif
                                                                 </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
+                                                                        Déscription Actif
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Réference mesure
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Description
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Etat
+                                                                    </th>
                                                                 
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                     Réference mesure
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Description
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Etat
-                                                                </th>
-                                                               
-                                                            </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr role="row">
-                                                            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                                Réference Actif
-                                                            </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                    Déscription Actif
-                                                                </th>
-                                                                
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                     Réference mesure
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Description
-                                                                </th>
-                                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                    Etat
-                                                                </th>
-                                                               
-                                                            </tr>
-                                                    </tfoot>
-                                                    <tbody> 
-                                                        {% for mesure in all %}                                      
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                {{mesure.actif_critique.id}}
-                                                            </td>
-                                                            <td>
-                                                                {{mesure.actif_critique.description}}
-                                                            </td>
-                                                            <td>
-                                                                {{mesure.reference}}
-                                                            </td>
-                                                            <td>
-                                                                {{mesure.description}}
-                                                             </td>
-                                                             <td>
-                                                                {{mesure.etat}}
-                                                             </td>
-
-                                                        </tr>
-                                                        {% endfor %}
+                                                                </tr>
+                                                        </thead>
                                                         
-                                        
-                                                    </tbody>
-                                                </table>
-                                                <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
-                                                    Showing 1 to 10 of 57 entries
+                                                        <tbody> 
+                                                            {% for mesure in all %}                                      
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{mesure.actif_critique.id}}
+                                                                </td>
+                                                                <td>
+                                                                    {{mesure.actif_critique.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{mesure.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{mesure.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{mesure.etat}}
+                                                                </td>
+
+                                                            </tr>
+                                                            {% endfor %}
+                                                            
+                                            
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
-                                                    <ul class="pagination">
-                                                        <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
-                                                            <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
-                                                                Previous
-                                                            </a>
-                                                        </li>
-                                                        <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
-                                                            1
-                                                        </a>
-                                                    </li>
-                                                    <li class="paginate_button ">
-                                                        <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="2" tabindex="0">
-                                                            2
-                                                        </a>
-                                                    </li>
-                                                    <li class="paginate_button ">
-                                                        <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="3" tabindex="0">
-                                                            3
-                                                        </a>
-                                                    </li>
-                                                    <li class="paginate_button ">
-                                                        <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="4" tabindex="0">
-                                                            4
-                                                        </a>
-                                                    </li>
-                                                    <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="5" tabindex="0">
-                                                        5
+                                            </div> 
+                                        </div>       
+                                        <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
+                                            Showing 1 to 10 of 57 entries
+                                        </div>
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
+                                                        Previous
                                                     </a>
                                                 </li>
-                                                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="6" tabindex="0">
-                                                    6
-                                                </a>
-                                            </li>
-                                            <li class="paginate_button next" id="DataTables_Table_1_next"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div>
-                                            </div>
+                                                {%for i in paginator.page_range %}
+                                                <li class="paginate_button   {% if i == page_number %} active {% endif%}">
+                                                    <a href='?page={{ i }}' aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
+                                                        {{i}}
+                                                    </a>
+                                                </li>
+                                                {%endfor%}
+                                                <li class="paginate_button next" id="DataTables_Table_1_next">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">
+                                                        Next
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        
-                    </div>
+                        </div>                   
                     <!--end content tab2-->
+
+
+
+
+
+
+
+
                     <!--content tab2-->
-                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                    <div role="tabpanel" class="tab-pane fade" id="encour">
                         <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="card">
                                     <div class="header">
                                         <div id="DataTables_Table_1_filter" class="dataTables_filter">
                                             <label>
-                                                Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1">
+                                                Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
                                             </label>
                                             
                                         </div>      
@@ -191,21 +151,7 @@
                                         <div class="table-responsive">
                                             <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                                                 <div class="dt-buttons" style="margin-bottom: 15px">
-                                                    <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                        <span>Copy</span>
-                                                    </a>
-                                                    <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                        <span>CSV</span>
-                                                    </a>
-                                                    <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                        <span>Excel</span>
-                                                    </a>
-                                                    <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                        <span>PDF</span>
-                                                    </a>
-                                                    <a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#">
-                                                        <span>Print</span>
-                                                    </a>
+                                                   
                                                 </div>
                                         
                                             <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
@@ -230,47 +176,30 @@
                                                            
                                                         </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr role="row">
-                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
-                                                            Réference Actif
-                                                        </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
-                                                                Déscription Actif
-                                                            </th>
-                                                            
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                 Réference mesure
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                Description
-                                                            </th>
-                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
-                                                                Etat
-                                                            </th>
-                                                           
-                                                        </tr>
-                                                </tfoot>
-                                                <tbody>                                         
-                                                <tr role="row" class="odd">
-                                                        <td class="sorting_1">
-                                                            
-                                                        </td>
-                                                        <td>
-                                                           
-                                                        </td>
-                                                        <td>
-                                                           
-                                                        </td>
-                                                        <td>
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                         </td>
+                                                
+                                                <tbody>  
+                                                    {% for mesure in all %} 
+                                                    {% if mesure.etat == "encours" %}                                     
+                                                    <tr role="row" class="odd">
+                                                            <td class="sorting_1">
+                                                                {{mesure.actif_critique.id}}
+                                                            </td>
+                                                            <td>
+                                                                {{mesure.actif_critique.description}}
+                                                            </td>
+                                                            <td>
+                                                                {{mesure.reference}}
+                                                            </td>
+                                                            <td>
+                                                                {{mesure.description}}
+                                                             </td>
+                                                             <td>
+                                                                {{mesure.etat}}
+                                                             </td>
 
-                                                    </tr>
-                                                    
+                                                        </tr>
+                                                        {%endif%}
+                                                        {% endfor %}
                                     
                                                 </tbody>
                                             </table>
@@ -278,40 +207,29 @@
                                                 Showing 1 to 10 of 57 entries
                                             </div>
                                             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
+    
+    
                                                 <ul class="pagination">
                                                     <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
                                                         <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
                                                             Previous
                                                         </a>
                                                     </li>
-                                                    <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
-                                                        1
-                                                    </a>
-                                                </li>
-                                                <li class="paginate_button ">
-                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="2" tabindex="0">
-                                                        2
-                                                    </a>
-                                                </li>
-                                                <li class="paginate_button ">
-                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="3" tabindex="0">
-                                                        3
-                                                    </a>
-                                                </li>
-                                                <li class="paginate_button ">
-                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="4" tabindex="0">
-                                                        4
-                                                    </a>
-                                                </li>
-                                                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="5" tabindex="0">
-                                                    5
-                                                </a>
-                                            </li>
-                                            <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="6" tabindex="0">
-                                                6
-                                            </a>
-                                        </li>
-                                        <li class="paginate_button next" id="DataTables_Table_1_next"><a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div>
+                                                    {%for i in paginator.page_range %}
+                                                    <li class="paginate_button   {% if i == page_number %} active {% endif%}">
+                                                        <a href='?page={{ i }}' aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
+                                                            {{i}}
+                                                        </a>
+                                                    </li>
+                                                    {%endfor%}
+                                                    <li class="paginate_button next" id="DataTables_Table_1_next">
+                                                        <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">
+                                                            Next
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

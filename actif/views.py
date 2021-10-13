@@ -4,6 +4,7 @@ from .forms import ACform, actifForm , typeActifForm , actifCritiqueForm
 from .models import actif, typeActif , actifCritique
 from .models import actifCritique
 from .models import actif
+from .models import typeActif
 from .filters import ActifFilter
 from django.core.paginator import Paginator
 
@@ -12,13 +13,14 @@ date = datetime.now
 # Actif views.
 
 def list(request):
+    typeactifs= typeActif.objects.all()
     if 'search' in request.GET:
         search=request.GET['search']
         actifs=actif.objects.filter(description__icontains=search)
     else:    
         actifs= actif.objects.all()
       
-    paginator= Paginator(actifs, per_page=3)
+    paginator= Paginator(actifs, per_page=10)
     page_number= request.GET.get('page', 1)
     page_obj= paginator.get_page(page_number)
     return render(
@@ -27,10 +29,11 @@ def list(request):
         {
             'all':page_obj.object_list,
             'paginator':paginator,
-            'page_number': int(page_number)
-        }
-    )
-
+                'page_number': int(page_number),
+            'typeactifs': typeactifs
+        })
+            
+        
 
 def ajoutActif(request):
 
@@ -131,3 +134,5 @@ def updateActifCritique(request, pk):
     context = {'form':form}
     return render(request, "actif/actif_critique_form.html", context)
     
+        
+
