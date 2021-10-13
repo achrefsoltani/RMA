@@ -1,0 +1,312 @@
+{% extends 'root/home.html' %}
+{% block content %}
+<h1>Session {{ session.reference }} : Choix d'actifs critiques</h1>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card"> 
+            <div class="body">
+                <!-- Nav tabs -->
+                
+                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                    <li role="presentation" class="active">
+                       
+                        <a href="#all" data-toggle="tab" aria-expanded="false">
+                            all
+                            
+                        </a>
+                    </li>
+                    {%for typeactif in typeactifs%}
+                    <li role="presentation" >
+                        <a href="#{{typeactif.reference}}"  data-toggle="tab" aria-expanded="true">
+                            {{typeactif.description}}
+                        </a>
+                    </li>
+                    {%endfor%}
+                               
+                </ul>
+                <!--end Tabs-->
+
+                <!-- Tabs content -->
+            <div class="tab-content">
+                <!--content tab1-->
+                    
+                <div role="tabpanel" class="tab-pane fade active in" id="all">
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <form>
+                                    
+                                                <label>
+                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
+                                                </label>
+                                            </form>
+                                            
+                                            
+                                        </div>      
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                                
+                                        
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
+                                                            Réference
+                                                        </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
+                                                                Description
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 104px;">
+                                                                Criticité d'affaire
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                CID
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 97px;">
+                                                                Propriétaire
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                                                                Intervenant
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                                                                Actions
+                                                            </th>
+                                                        </tr>
+                                                </thead>
+                                        
+                                                <tbody>
+                                            {% for actif in all %}  
+                                                                                    
+                                                    <tr role="row" class="odd">
+                                                            <td class="sorting_1">
+                                                                {{actif.reference}}
+                                                            </td>
+                                                            <td>
+                                                                {{actif.description}}
+                                                            </td>
+                                                            <td>
+                                                                {{actif.criticite_affaire}}
+                                                            </td>
+                                                            <td>
+                                                                {{actif.cid}}
+                                                            </td>
+                                                            <td>{{actif.proprietaire}}</td>
+                                                            <td>Interne</td>
+                                                            <td>
+                                                                
+                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                    
+                                                                    {% if actif in actifsSession %}
+                                                                    <a href="{% url 'delAc' session.id actif.id%}" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">remove_circle</i>
+                                                                    </a>
+                                                                    
+                                                                    {% else %}
+                                                                    <a href="{% url 'addAc' session.id actif.id%}" class="btn bg-green waves-effect" role="button">
+                                                                        <i class="material-icons">add_circle</i>
+                                                                    </a>
+                                                                    
+                                                                    {% endif %}
+                                                                    
+                                                                </div>
+                                                            
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                
+                                            {% endfor %}
+                                                </tbody>
+                                                </table>
+
+                                        <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
+                                            Showing 1 to 10 of 57 entries
+                                        </div>
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
+
+
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
+                                                        Previous
+                                                    </a>
+                                                </li>
+                                                {%for i in paginator.page_range %}
+                                                <li class="paginate_button   {% if i == page_number %} active {% endif%}">
+                                                    <a href='?page={{ i }}' aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
+                                                        {{i}}
+                                                    </a>
+                                                </li>
+                                                {%endfor%}
+                                                <li class="paginate_button next" id="DataTables_Table_1_next">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">
+                                                        Next
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <input class="btn btn-primary" onclick="window.location.href='{% url 'listSessions' %}'" value="Retour">
+                                        </div>
+            
+                                        <div class="col-md-6">
+                                            <input class="btn btn-primary" onclick="window.location.href='{% url 'listAc' session.id%}'" type="submit" value="Confirmer Choix">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                    
+                <!--content tab2-->
+
+                {%for typeactif in typeactifs%}
+                <div role="tabpanel" class="tab-pane fade  in" id="{{typeactif.reference}}">
+                        
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <div id="DataTables_Table_1_filter" class="dataTables_filter">
+                                            <form>
+                                    
+                                                <label>
+                                                    Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
+                                                </label>
+                                            </form>
+                                            
+                                            
+                                        </div>      
+                                    </div>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                                
+                                        
+                                            <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">
+                                                            Réference
+                                                        </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 233px;">
+                                                                Description
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 104px;">
+                                                                Criticité d'affaire
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                CID
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 97px;">
+                                                                Propriétaire
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                                                                Intervenant
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                                                                Actions
+                                                            </th>
+                                                        </tr>
+                                                </thead>
+                                                
+                                                <tbody>
+                                                {%for actif in all %}
+                                                   {% if actif.type.reference == typeactif.reference %}
+                                                
+                                                
+                                                                                    
+                                                <tr role="row" class="odd">
+                                                        <td class="sorting_1">
+                                                            {{actif.reference}}
+                                                        </td>
+                                                        <td>
+                                                            {{actif.description}}
+                                                        </td>
+                                                        <td>
+                                                            {{actif.criticite_affaire}}
+                                                        </td>
+                                                        <td>
+                                                            {{actif.cid}}
+                                                        </td>
+                                                        <td>{{actif.proprietaire}}</td>
+                                                        <td>Interne</td>
+                                                        <td>
+                                                            
+                                                            <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                
+                                                                {% if actif in actifsSession %}
+                                                                    <a href="{% url 'delAc' session.id actif.id%}" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">remove_circle</i>
+                                                                    </a>
+                                                                    
+                                                                {% else %}
+                                                                    <a href="{% url 'addAc' session.id actif.id%}" class="btn bg-green waves-effect" role="button">
+                                                                        <i class="material-icons">add_circle</i>
+                                                                    </a>
+                                                                    
+                                                                {% endif %}
+                                                            </div>
+                                                        
+                                                        </td>
+                                                    </tr>
+                                                    {%endif%}
+                                                    {%endfor%}
+
+                                                
+                                                </tbody>
+                                                </table>
+
+                                        <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
+                                            Showing 1 to 10 of 57 entries
+                                        </div>
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
+
+
+                                            <ul class="pagination">
+                                                <li class="paginate_button previous disabled" id="DataTables_Table_1_previous">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0">
+                                                        Previous
+                                                    </a>
+                                                </li>
+                                                {%for i in paginator.page_range %}
+                                                <li class="paginate_button   {% if i == page_number %} active {% endif%}">
+                                                    <a href='?page={{ i }}' aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">
+                                                        {{i}}
+                                                    </a>
+                                                </li>
+                                                {%endfor%}
+                                                <li class="paginate_button next" id="DataTables_Table_1_next">
+                                                    <a href="#" aria-controls="DataTables_Table_1" data-dt-idx="7" tabindex="0">
+                                                        Next
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                {%endfor%}
+                
+                
+                
+
+            </div>
+                
+                <!--Navigation buttons -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -37,7 +37,7 @@ class actif(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.description
+        return str(self.id)
 
 
 class actifCritique(models.Model):
@@ -58,6 +58,6 @@ class actifCritique(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.actif.reference + " -- " + self.session.description
+        return str(self.id)
 
     
