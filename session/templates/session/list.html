@@ -54,7 +54,7 @@
                                                     <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                                         <thead>
                                                             <tr role="row">
-                                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                                                                <th class="sorting_desc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
                                                                     Réference 
                                                                 </th>
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 150px;">
@@ -69,6 +69,9 @@
                                                                     </th>
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
                                                                         Statut
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Actions
                                                                     </th>
                                                                 
                                                                 </tr>
@@ -92,6 +95,19 @@
                                                                 <td>
                                                                     {{session.statut}}
                                                                 </td>
+                                                                <td>
+                                                                
+                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                    
+                                                                    <a href="{% url 'listAc' session.id%}" class="btn bg-orange waves-effect" role="button">
+                                                                        <i class="material-icons">edit</i>
+                                                                    </a>
+                                                                    <a href="{% url 'deleteSession' session.id %}" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </div>
+                                                            
+                                                            </td>
 
                                                             </tr>
                                                             {% endfor %}
@@ -172,6 +188,9 @@
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
                                                                         Statut
                                                                     </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">
+                                                                        Actions
+                                                                    </th>
                                                                 
                                                                 </tr>
                                                         </thead>
@@ -195,6 +214,19 @@
                                                                 <td>
                                                                     {{session.statut}}
                                                                 </td>
+                                                                <td>
+                                                                
+                                                                <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+                                                                    
+                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                        <i class="material-icons">edit</i>
+                                                                    </a>
+                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </div>
+                                                            
+                                                            </td>
 
                                                             </tr>
                                                             {% endif %}

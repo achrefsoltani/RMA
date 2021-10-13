@@ -24,7 +24,7 @@
                     {%endfor%}
                     <li role="presentation" class="">
                        
-                        <a href="#add" data-toggle="tab" aria-expanded="false">
+                        <a href="{% url 'addTypeActif'%}" >
                             <i class="material-icons">add_box</i>
                             
                         </a>
@@ -48,7 +48,7 @@
                                                     Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="DataTables_Table_1" name="search">
                                                 </label>
                                             </form>
-                                            <button style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
+                                            <button onclick="window.location.href='{% url 'addActif'%}'" style="margin-left: 70%;" type="button" class="btn btn-primary waves-effect">
                                                 Nouveau actif
                                             </button>
                                             

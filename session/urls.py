@@ -20,6 +20,7 @@ urlpatterns = [
     path('<str:pk>/plan', views.plan, name="planSession"),
 
     path('<str:pk>/', views.detail, name="detailSession"),
+    path('<str:pk>/del', views.delSess, name="deleteSession"),
 
 
 ]

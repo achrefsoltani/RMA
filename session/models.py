@@ -6,7 +6,7 @@ class session(models.Model):
 
     reference = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=50, null=True)
-    debut = models.DateTimeField(null=True)
+    debut = models.DateTimeField(auto_now_add=True,null=True)
     fin = models.DateTimeField(null=True)
     statut = models.CharField(max_length=50, null=True)
 

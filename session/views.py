@@ -24,10 +24,18 @@ def detail(request , **args):
     return render(request, 'session/detail.html', {'date':date})
 
 def new(request , **args):
-    new_session = session.objects.create(reference='testview')
+    new_session = session.objects.create()
+    new_session.reference = 'S'+ str(new_session.id) + '/' + str(new_session.debut.year)
+    new_session.description = 'Session '+ str(new_session.debut.year)
+    new_session.statut = 'En cours'
+    new_session.save()
     
     pk = new_session.id
     return redirect('choixAc', pk)
+
+def delSess(request , pk):
+    session.objects.filter(id=pk).delete()
+    return redirect('listSessions')
 
 # Actifs Critiques
 def choixAc(request , pk):
