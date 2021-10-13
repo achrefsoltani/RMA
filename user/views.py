@@ -28,3 +28,7 @@ def auth(request):
             'date':date
 
             })
+def logout(request):
+    logout(request)
+    messages.success(request,("you were logout!"))  
+    return redirect('home')          
