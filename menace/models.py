@@ -1,5 +1,7 @@
 from django.db import models
 
+from actif.models import actifCritique
+
 # Create your models here.
 
 class menace(models.Model):
@@ -19,6 +21,10 @@ class menace(models.Model):
     acteur = models.CharField(max_length=50, null=True)
     motivation = models.CharField(max_length=50, null=True)
     resultat = models.CharField(max_length=50, null=True)
+
+    #Relationships
+
+    actif = models.ForeignKey(actifCritique, null=True, on_delete=models.SET_NULL)
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)

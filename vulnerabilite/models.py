@@ -26,7 +26,7 @@ class vulnerabilite(models.Model):
     #Relationships
 
     type = models.ForeignKey(typeVulnerabilite, null=True, on_delete=models.SET_NULL)
-    menace = models.CharField(max_length=200, null=True)
+    
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)

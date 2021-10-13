@@ -1,5 +1,6 @@
 from actif.models import actifCritique
 from django.db import models
+from menace.models import menace
 
 
 # Create your models here.
@@ -45,7 +46,11 @@ class impactNote(models.Model):
 
     #Relationships
 
-    actif = models.ForeignKey(actifCritique, null=True, on_delete=models.SET_NULL)
+    menace = models.OneToOneField(
+        menace,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
 
     #logs
     created_at = models.DateTimeField(auto_now_add=True)

@@ -9,7 +9,7 @@ class vulnerabiliteForm(ModelForm):
         model = vulnerabilite
         fields = ['reference',
                   'description',
-                  'menace'
+                  
                  ]       
 
 
