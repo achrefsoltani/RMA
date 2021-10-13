@@ -46,10 +46,12 @@ class impactNote(models.Model):
 
     #Relationships
 
+    impact = models.ForeignKey(impact, null=True, on_delete=models.SET_NULL)
+
     menace = models.OneToOneField(
         menace,
         on_delete=models.CASCADE,
-        primary_key=True,
+        null=True
     )
 
     #logs

@@ -1,13 +1,175 @@
 {% extends 'root/home.html' %}
 
 {% block content %}
-<h1>Menaces</h1>
+<h1>Menaces actif {{pk}}</h1>
+
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card"> 
-            <div class="body">
-            Hello
+            <div class="body" >
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="col-md-3">
+                    Access : 
+                        <select name="access" id="access">
+                            
+                                <option value= 'Réseau'>Réseau</option>
+                                <option value= 'Physique'>Physique</option>
+                                <option value= 'Problèmes systèmes'>Problèmes systèmes</option>
+                                <option value= 'Autres problèmes'>Autres problèmes</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                    Acteur : 
+                        <select name="acteur" id="acteur">
+                            
+                                <option value= 'Interne'>Interne</option>
+                                <option value= 'Externe'>Externe</option>
+                                <option value= 'Défaut logiciel'>Défaut logiciel</option>
+                                <option value= 'Le système plante'>Le système plante</option>
+                                <option value= 'Défaut matériel'>Défaut matériel</option>
+                                <option value= 'Code malicieux'>Code malicieux</option>
+                                <option value= "Pb d'alimentation">Pb d'alimentation</option>
+                                <option value= 'Pb Télécommunication'>Pb Télécommunication</option>
+                                <option value= 'Pb Tiers'>Pb Tiers</option>
+                                <option value= 'Catastrophes Naturelles'>Catastrophes Naturelles</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                    Motivation : 
+                        <select name="motivation" id="motivation">
+                            
+                                <option value= ''></option>
+                                <option value= 'Accidentelle'>Accidentelle</option>
+                                <option value= 'Délibéré'>Délibéré</option>
+                            
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                    Resultat : 
+                        <select name="resultat" id="resultat">
+                            
+                                <option value= 'Divulgation'>Divulgation</option>
+                                <option value= 'Modification'>Modification</option>
+                                <option value= 'Perte & Destruction'>Perte & Destruction</option>
+                                <option value= 'Interruption'>Interruption</option>
+                            
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                    Impact : 
+                         <select name="impact" id="desc">
+                            {% for i in impacts%}
+                                <option value= '{{impact.reference}}'>{{i.description}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                    Note : 
+                        <input type="number" id="note" name="note" min="0" max="100">
+                    </div>
+                    <div class="col-md-2">
+                    Occurence : 
+                        <input type="number" id="occurence" name="occurence" min="0" max="100">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input class="btn btn-primary" type="submit" value="Ajouter">
+                    </div>
+                </form>
+
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 48px;">
+                                                                    Réference 
+                                                                </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 48px;">
+                                                                        Access
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Acteur
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Motivation
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Resultat
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
+                                                                        Impact
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Note Impact
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Occurence
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Action
+                                                                    </th>
+                                                                </tr>
+                                                        </thead>
+                                                        
+                                                        <tbody> 
+                                                    {% for i in impactsAdded  %}                                      
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{i.menace.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.menace.access}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.menace.acteur}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.menace.motivation}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.menace.resultat}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.impact.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.note_impact}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.note_occurence}}
+                                                                </td>
+                                                                
+                                                                <td>
+                                                                    <a href="" class="btn bg-red waves-effect" role="button">
+                                                                        <i class="material-icons">delete</i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                    {% endfor %}
+                                                            
+                                            
+                                                        </tbody>
+                </table>
+
+                <div class="col-md-6">
+                    
+                    <input class="btn btn-primary" onclick="window.location.href=''" value="Retour">
+                </div>
+
+                <div class="col-md-6">
+                    
+                    <input class="btn btn-primary" onclick="window.location.href=''" value="Suivant">
+                </div>
+                
+
+                <br><br>
             </div>
         </div>
     </div>

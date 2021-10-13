@@ -2,9 +2,11 @@ from django.shortcuts import redirect, render
 from datetime import datetime
 
 from actif.models import actif, actifCritique
+from menace.models import menace
 from vulnerabilite.models import typeVulnerabilite, vulnerabilite, vulnerabiliteNote
 from .models import session
 from actif.models import actif, typeActif , actifCritique
+from impact.models import impact, impactNote
 from django.core.paginator import Paginator
 
 date = datetime.now
@@ -88,7 +90,6 @@ def VulAc(request , pk):
         desc =request.POST.get('desc')
         note =request.POST.get('note')
         vulChoisi = vulnerabilite.objects.filter(description = desc)
-        print(vulChoisi)
         actifEnCours = actifCritique.objects.get(id = pk)
         vulnerabiliteNote.objects.create(vulnerabilite = vulChoisi[0], actif = actifEnCours, note=note)
             
@@ -104,12 +105,31 @@ def delVul(request , pk, pkv):
     return redirect('VulAc', pk)
 
 # Menaces Actif critique
-def MenAc(request , **args):
+def MenAc(request , pk):
+    impacts = impact.objects.all()
+    actifEnCours = actifCritique.objects.get(id = pk)
+    if request.method == 'POST' and request.POST.get('note').isdigit() and request.POST.get('occurence').isdigit():
+        access = request.POST.get('access')
+        acteur = request.POST.get('acteur')
+        motivation = request.POST.get('motivation')
+        resultat = request.POST.get('resultat')
+        impactChoisi = request.POST.get('impact')
 
-    return render(request, 'session/menaces.html', {'date':date})
+        note = request.POST.get('note')
+        occurence = request.POST.get('occurence')
+        menaceCree = menace.objects.create(description='test',access=access,acteur=acteur,motivation=motivation,resultat=resultat,actif=actifEnCours)
+        impactNote.objects.create(menace=menaceCree, note_impact=note, note_occurence=occurence, impact=impactChoisi[0])
 
-def delMen(request , pk, pkv):
+
+    menaceActif = menace.objects.filter(actif=actifEnCours)
+    impactsadded =[]
+    for m in menaceActif:
+        impactsadded.append(impactNote.objects.filter(menace=m).first()) 
+    return render(request, 'session/menaces.html', {'date':date, 'impacts':impacts, 'impactsAdded':impactsadded})
+
+def delMen(request , pk, pki):
     
+    impactNote.objects.filter(id=pki).delete()    
     return redirect('MenAc', pk)
 
 # Session  

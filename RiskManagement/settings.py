@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'RiskManagement.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'postgres',
+      'NAME':'RM',
       'USER':'postgres',
       'PASSWORD':'achref',
       'HOST':'localhost',
