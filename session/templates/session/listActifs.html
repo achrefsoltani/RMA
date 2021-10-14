@@ -48,8 +48,9 @@
                                                                     {{actif.actif.proprietaire}}
                                                                 </td>
                                                                 <td>
-                                                                    En cours
+                                                                    {{actif.etat}}
                                                                 </td>
+                                                                
                                                                 <td>
                                                                     <a href="{% url 'VulAc' actif.id%}" class="btn bg-green waves-effect" role="button">
                                                                         <i class="material-icons">border_color</i>
@@ -67,7 +68,7 @@
                 </div>
             
                 <div class="col-md-6">
-                    <input class="btn btn-primary" onclick="window.location.href=''" type="submit" value="Suivant">
+                    <input class="btn btn-primary" onclick="window.location.href='{% url 'traitementSession' session.id%}'" type="submit" value="Suivant">
                 </div>
             
             <br><br>

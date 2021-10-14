@@ -1,14 +1,93 @@
 {% extends 'root/home.html' %}
 
 {% block content %}
-<h1>traitement</h1>
+<h1>Session {{ pk }} : Traitement</h1>
 
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card"> 
             <div class="body">
-            Hello
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                                        <thead>
+                                                            <tr role="row">
+                                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                                                                    Réference 
+                                                                </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 150px;">
+                                                                        Description 
+                                                                    </th>
+                                                                    
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Vulnérabilité
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Occurence
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Impact
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Maturité
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Risque
+                                                                    </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                        Traitement
+                                                                    </th>
+                                                                </tr>
+                                                        </thead>
+                                                        
+                                                        <tbody> 
+                                                            {% for i in items %}                                      
+                                                        <tr role="row" class="odd">
+                                                                <td class="sorting_1">
+                                                                    {{i.0.actif.reference}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.0.actif.description}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.1}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.2}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.3}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.4}}
+                                                                </td>
+                                                                <td>
+                                                                    {{i.5}}
+                                                                </td>
+                                                                
+                                                                <td>
+                                                                    <a href="" class="btn bg-green waves-effect" role="button">
+                                                                        <i class="material-icons">border_color</i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                            
+                                            
+                                                        </tbody>
+                </table>
+                <div class="col-md-6">
+                    
+                    <input class="btn btn-primary" onclick="window.location.href='{% url 'listAc' pk %}'" value="Retour">
+                </div>
+            
+                <div class="col-md-6">
+                    <input class="btn btn-primary" onclick="window.location.href=''" type="submit" value="Suivant">
+                </div>
+            
+            <br><br>
+            
             </div>
+
+            
         </div>
     </div>
 </div>

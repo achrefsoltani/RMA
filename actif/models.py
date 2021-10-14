@@ -45,7 +45,7 @@ class actifCritique(models.Model):
     incidents = models.IntegerField(null=True)
     maturite = models.IntegerField(null=True)
     note_risque = models.IntegerField(null=True)
-
+    etat = models.CharField(max_length=50, null=True)
     #Relationships
 
     actif = models.ForeignKey(actif, null=True, on_delete=models.SET_NULL)

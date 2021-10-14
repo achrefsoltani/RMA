@@ -32,4 +32,4 @@ class menace(models.Model):
     #created_by = .....
 
     def __str__(self):
-        return self.description
+        return str(self.id)

@@ -1,7 +1,7 @@
 {% extends 'root/home.html' %}
 
 {% block content %}
-<h1>Menaces actif {{pk}}</h1>
+<h1>Session {{pks}} Menaces actif {{pka}}</h1>
 
 
 <div class="row">
@@ -102,9 +102,7 @@
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
                                                                         Resultat
                                                                     </th>
-                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
-                                                                        Impact
-                                                                    </th>
+                                                                    
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
                                                                         Note Impact
                                                                     </th>
@@ -136,9 +134,7 @@
                                                                 <td>
                                                                     {{i.menace.resultat}}
                                                                 </td>
-                                                                <td>
-                                                                    {{i.impact.description}}
-                                                                </td>
+                                                                
                                                                 <td>
                                                                     {{i.note_impact}}
                                                                 </td>
@@ -165,7 +161,7 @@
 
                 <div class="col-md-6">
                     
-                    <input class="btn btn-primary" onclick="window.location.href=''" value="Suivant">
+                    <input class="btn btn-primary" onclick="window.location.href='{% url 'finAc' pks pka%}'" value="Finaliser Actif">
                 </div>
                 
 
