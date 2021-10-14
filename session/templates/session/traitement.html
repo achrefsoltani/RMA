@@ -32,7 +32,7 @@
                                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
                                                                         Risque
                                                                     </th>
-                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 48px;">
+                                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 200px;">
                                                                         Traitement
                                                                     </th>
                                                                 </tr>
@@ -64,9 +64,20 @@
                                                                 </td>
                                                                 
                                                                 <td>
-                                                                    <a href="" class="btn bg-green waves-effect" role="button">
-                                                                        <i class="material-icons">border_color</i>
-                                                                    </a>
+                                                                    <form action="" method="POST">
+                                                                        {% csrf_token %}
+                                                                        <select name="traitement" id="traitement">
+                            
+                                                                            <option value= 'Accepter'>Accepter</option>
+                                                                            <option value= 'Transfert'>Transfert</option>
+                                                                            <option value= 'Réduction'>Réduction</option>
+                                                                            <option value= 'Evitement'>Evitement</option>
+                            
+                                                                        </select><br>
+                                                                        Note : 
+                                                                        <input type="number" id="note" name="note" min="0" max="100">
+                                                                        
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                             {% endfor %}
@@ -80,7 +91,7 @@
                 </div>
             
                 <div class="col-md-6">
-                    <input class="btn btn-primary" onclick="window.location.href=''" type="submit" value="Suivant">
+                    <input class="btn btn-primary" onclick="window.location.href='{% url 'planSession' pk%}'" type="submit" value="Suivant">
                 </div>
             
             <br><br>

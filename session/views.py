@@ -157,6 +157,8 @@ def delMen(pks, pki):
 # Session  
 
 def traitement(request , pk):
+
+    
     ac_session = actifCritique.objects.filter(session__pk = pk)
     L =[]
     for a in ac_session:
@@ -191,6 +193,12 @@ def traitement(request , pk):
 
     return render(request, 'session/traitement.html', {'date':date, 'items':L, 'pk':pk})
 
+def addMes(request,pk, pka):
+    if request.method == 'POST' and request.POST.get('note').isdigit():
+        a = actifCritique.objects.filter(id=pka)
+        m = mesure.objects.create(type = request.POST.get('traitement'), description = request.POST.get('traitement'), etat ='en cours', note = request.POST.get('note'), actif_critique =a )
+        m.reference = 'M'+ str(m.id)
+    return redirect('traitement',pk)
 def plan(request , **args):
 
     return render(request, 'session/rapport.html', {'date':date})

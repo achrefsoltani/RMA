@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.list, name="listSessions"),
     path('new', views.new, name="NouvelleSession"),
+    path('addM/<str:pk>/<str:pka>', views.addMes, name="addMes"),
+
 
     path('ac/<str:pk>/add/<str:pka>', views.addAc, name="addAc"),
     path('ac/<str:pk>/del/<str:pka>', views.delAc, name="delAc"),

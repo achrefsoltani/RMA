@@ -108,10 +108,10 @@
                                                                 
                                                                 <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
                                                                     
-                                                                    <a href="javascript:void(0);" class="btn bg-orange waves-effect" role="button">
+                                                                    <a href="{% url 'updateActif' actif.id%}" class="btn bg-orange waves-effect" role="button">
                                                                         <i class="material-icons">edit</i>
                                                                     </a>
-                                                                    <a href="javascript:void(0);" class="btn bg-red waves-effect" role="button">
+                                                                    <a href="{% url 'deleteActif' actif.id%}" class="btn bg-red waves-effect" role="button">
                                                                         <i class="material-icons">delete</i>
                                                                     </a>
                                                                 </div>

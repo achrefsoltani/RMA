@@ -106,13 +106,13 @@
                 Mesures existantes de sécurité :
                 <br>
                 <table style=" border: 2px solid black; width: 80%">
-                    {% for actif in actifC %}
+                    
                     <tr>
                         <td>
-                            <a href="{% url 'updateMesure' pk=actif.mesure.id %}" > {{actif}}  -- {{actif.mesure.description}} ({{actif.mesure.etat}})</a>
+                            Pas de Mesures
                         </td>
                     </tr>
-                    {% endfor %}
+                    
                     
                 </table>
 
