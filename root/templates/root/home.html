@@ -104,7 +104,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="{% static 'root/images/user.png' %}" width="48" height="48" alt="User" />
+                    <img src="{% static 'root/images/user.jpg' %}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Amor Mrabet</div>
@@ -117,7 +117,11 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">history</i>Historique</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Déconnexion</a></li>
+                            {%if user.is_authenticated%}
+                                 <li><a href="{% url 'logout' %}"><i class="material-icons">input</i>Déconnexion</a></li>
+                            {% else %}
+                                 <li><a href="{% url 'signin' %}"><i class="material-icons">input</i>Connexion</a></li>
+                            {% endif %}     
                         </ul>
                     </div>
                 </div>
