@@ -26,5 +26,5 @@ urlpatterns = [
     path('<str:pk>/del', views.delSess, name="deleteSession"),
 
 
-    path('details/', views.details, name="detailsSessions"),
+    
 ]
